@@ -30,22 +30,58 @@ app.get('/',(req,res)=>{
    res.render("login.ejs")
 });
 
-app.get('/login', (req, res)=>
-{
-    var username= req.query.username
-    var pswd= req.query.password
-    let sql = "select * from staff2 where username like '%"+username+"%'"
-    db.query(sql, (err, results)=>
-    {
-        if(err) throw err;
-       
-        // res.send("fetched")
-        if(results[0].password==pswd){
-        res.render('home.ejs', {results})
-        }
+// app.get('/login', (req, res)=>
+// {
+//     if(  (req.query.username==null)|| (req.query.password==null)){
+//         res.redirect('/login')
 
-        else if(username!=results[0].username ||results[0].password!=pswd || pswd==""||username=="")
-            res.render('login.ejs')
+//     }
+    
+//     var username= req.query.username
+//     var pswd= req.query.password
+//     let sql = "select * from staff2 where username like '%"+username+"%'"
+//     db.query(sql, (err, results)=>
+//     {
+//         if(err) throw err;
+       
+//         // res.send("fetched")
+//         if(results[0].password==pswd){
+//         res.render('home.ejs', {results})
+//         }
+
+//         else{
+//             res.redirect('/login')
+
+//         }
         
+        
+//     })
+// })
+
+app.get('/login', (req, res)=>{
+    var username=req.query.username
+    var password=req.query.password
+    let sql=`select * from staff2 where username='${username}'`
+
+    db.query(sql, (err, result)=>{
+        if(err) console.log(err)
+
+        console.log(password)
+        console.log(result.password)
+        if(result.length==0)
+        {
+            res.render('login.ejs')
+            // prompt("useremail does not exist")
+        }
+        else if(result[0].password==password)
+        {
+            res.render('home.ejs', {result})
+        }
+        else
+        {
+            res.render('login.ejs')
+            // prompt("invali password")
+        }
+
     })
 })
