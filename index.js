@@ -33,16 +33,50 @@ app.get('/',(req,res)=>{
 
 
 app.get('/views/dashboard',(req,res)=>{
+    let sql='select * from ordertrial'
+    db.query(sql,(err,resultorder)=>{
+        if(err) console.log(err)
+        res.render("dashboard.ejs",{resultorder})
+    })
     
 
-    res.render("dashboard.ejs")
+    
  });
  app.get('/views/orders',(req,res)=>{
-    
 
-    res.render("orders.ejs")
- });
+    let sql=`select * from staff2 `
+    // .js
+
+
+    db.query(sql, (err, result)=>{
+        if(err) console.log(err)
+        res.render('orders.ejs', {result})
+    })
+
+    });
+
+    app.get('/order-submit',(req,res)=>{
+        var type=req.query.type
+        var table=req.query.table
+        var contents=req.query.contents
+        var date=req.query.date
+        var attendant=req.query.Attendent
+        var amount=Number(req.query.Amount)
+
+        let sql=`insert into  ordertrial(type,contents,table_no,date,attendant,amount) values('${type}','${contents}',${table},'${date}','${attendant}',${amount}) `
+        // .js
+    
+    
+        db.query(sql, (err, results)=>{
+            if(err) console.log(err)
+            console.log(attendant)
+            res.render('home.ejs', {results})
+        })
+    
+        });
  app.get('/views/KOT',(req,res)=>{
+
+
     
 
     res.render("KOT.ejs")

@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        .form-group col-md-2:hover{
+            border-color: aqua;
+            /* border-block-style: ; */
+        }
+    </style>
     
 </head>
 <body>
@@ -12,6 +19,64 @@
     <div>
     
     <h1 style="color:#01a9bb ;text-align: center;">Orders</h1>
+
+    <form style="margin-left:50px" action="/order-submit">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Order Type</label>
+            <input type="text" name="type" class="form-control" id="inputEmail4" placeholder="Dine in or Take away">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputPassword4">Table no.</label>
+            <input type="text" class="form-control" name="table" id="inputPassword4" placeholder="Table no.">
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Order contents</label>
+          <input type="text" class="form-control"  name="contents" id="inputAddress" placeholder="Describe the menu">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="inputCity">Date</label>
+            <input type="date" name="date" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputState">Attending Staff</label>
+            <select id="inputState"  name="Attendent" class="form-control">
+              
+              <% for(let values of result){%>
+                <option><%=values.username%></option>
+                
+                <%}%>
+              
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Amount</label>
+            <input type="text" name="Amount" class="form-control" id="inputZip">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <input type="submit" class="btn btn-primary" onclick="submitForm()"></button>
+
+        <script>
+            function submitForm() {
+            document.contact-form.submit();
+            document.contact-form.reset();
+            }
+
+            
+        </script>
+      </form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>

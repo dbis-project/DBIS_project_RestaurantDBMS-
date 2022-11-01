@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <style>
+        .b{
+            font-weight: bold;
+        }
+    </style>
     
 </head>
 <body>
@@ -12,6 +17,31 @@
     <div>
     
     <h1 style="color:#01a9bb ;text-align: center;">Dashboard</h1>
+    <table>
+        <tr>
+            
+            <td class="b">Order id</td>
+            <td class="b">Type</td>
+            <td class="b">Table no.</td>
+            <td class="b">Contents</td>
+            <td class="b">Date</td>
+            <td class="b">Attendent</td>
+            <td class="b">Amount</td>
+        </tr>
+        <% for(let values of resultorder){%>
+            <tr>
+                <td><%= values.id%></td>
+                <td><%= values.type %></td>
+                <td><%= values.table_no %></td>
+                <td><%= values.contents %></td>
+                
+                <td><%= values.date%></td>
+                <td><%= values.attendant%></td>
+                <td><%= values.amount%></td>
+            </tr>
+            <%}%>
+        </table>
+    
 </div>
 </body>
 </html>
