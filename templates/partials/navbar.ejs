@@ -10,12 +10,19 @@
 
 
         .dropdown-menu{
-            /* background: rgb(51, 187, 178); */
-            background:#01a9bb;
+            background: rgb(51, 187, 178);
+            /* background:#01a9bb; */
             border: #3d454f;
             color:rgb(228, 226, 226);
             
 
+        }
+
+        .dropdown-menu .dropdown-item{
+          font-weight: bold;
+          color:#3d454f;
+          border: 1px ;
+          border-color: #3d454f;;
         }
         
         .navbar-nav {
@@ -25,7 +32,7 @@
     <!-- <link rel="stylesheet" href="../../public/css/app.css"> -->
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg " style="background:#3d454f;">
+    <nav class="navbar navbar-expand-lg sticky-top" style="background:#3d454f;">
         <div class="container-fluid "  style="margin-top:0rem !important"  >
           <a class="navbar-brand"  href="#" style="color:rgb(51, 187, 178) ; font-family:Arial, Helvetica, sans-serif ; width:5%;"><strong>ST-RMS</strong></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,8 +50,8 @@
                 <a class="nav-link dropdown-toggle active" href="/views/KOT" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
                  Kitchen Order_Tickets
                 </a>
-                <ul class="dropdown-menu"  >
-                  <li style="border-color: rgb(51, 187, 178);"><a class="dropdown-item" href="#">Action</a></li>
+                <ul class="dropdown-menu " style="border-radius: 0;" >
+                  <li ><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>

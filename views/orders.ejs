@@ -22,6 +22,18 @@
 
     <form style="margin-left:50px" action="/order-submit">
         <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="inputPassword4">Customer name</label>
+            <input type="text" class="form-control" name="cname" id="inputPassword4" placeholder="Table no.">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputPassword4">Contact no. </label>
+            <input type="text" class="form-control" name="phone" id="inputPassword4" placeholder="Table no.">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputPassword4">Mail id</label>
+            <input type="email" class="form-control" name="email" id="inputPassword4" placeholder="Table no.">
+          </div>
           <div class="form-group col-md-4">
             <label for="inputEmail4">Order Type</label>
             <input type="text" name="type" class="form-control" id="inputEmail4" placeholder="Dine in or Take away">
@@ -30,6 +42,7 @@
             <label for="inputPassword4">Table no.</label>
             <input type="text" class="form-control" name="table" id="inputPassword4" placeholder="Table no.">
           </div>
+          
         </div>
         <div class="form-group col-md-6">
           <label for="inputAddress">Order contents</label>
@@ -46,7 +59,7 @@
             <select id="inputState"  name="Attendent" class="form-control">
               
               <% for(let values of result){%>
-                <option><%=values.username%></option>
+                <option><%=values.sname%></option>
                 
                 <%}%>
               

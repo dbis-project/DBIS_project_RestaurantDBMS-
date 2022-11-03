@@ -6,17 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
+
+
         .b{
             font-weight: bold;
         }
+        /*	
+	Table Responsive
+	===================
+	Author: https://github.com/pablorgarcia
+ */
+
+ @charset "UTF-8";
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+ 
+ body {
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 300;
+   line-height: 1.42em;
+   color:#A7A1AE;
+   background-color:#1F2739;
+ }
+ 
+ h1 {
+   font-size:3em; 
+   font-weight: 300;
+   line-height:1em;
+   text-align: center;
+   color: #4DC3FA;
+ }
+ 
+ h2 {
+   font-size:1em; 
+   font-weight: 300;
+   text-align: center;
+   display: block;
+   line-height:1em;
+   padding-bottom: 2em;
+   color: #FB667A;
+ }
+ 
+ h2 a {
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #FB667A;
+   text-decoration: none;
+ }
+ 
+ .blue { color: #185875; }
+ .yellow { color: #FFF842; }
+ 
+ .containers th  {
+       font-weight: bold;
+       font-size: 1em;
+   text-align: center;
+   color: whitesmoke;
+ }
+ 
+ .containers td {
+       font-weight: normal;
+       font-size: 1em;
+       text-align: center;
+       
+   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+        -moz-box-shadow: 0 2px 2px -2px #0E1119;
+             box-shadow: 0 2px 2px -2px #0E1119;
+ }
+ 
+ .containers {
+       text-align: left;
+       overflow: hidden;
+       width: 100%;
+       /* margin: 0 auto; */
+   display: table;
+   padding: 0 0 0 0;
+ }
+ 
+ .containers td, .containers th {
+       padding-bottom: 2.75%;
+       padding-top: 2.75%;
+   /* padding-left:2%;   */
+   /* padding: 2%; */
+   
+ }
+ 
+ /* Background-color of the odd rows */
+ .containers tr:nth-child(odd) {
+       background-color: rgb(51, 187, 178);
+ }
+ 
+ /* Background-color of the even rows */
+ .containers tr:nth-child(even) {
+       background-color:rgb(51, 187, 178)";
+ }
+ 
+ .containers th {
+       background-color: #e76f51;
+ }
+ 
+ .containers td:first-child { color: #e76f51; }
+ 
+ /* .containers tr:hover {
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+ } */
+ 
+ .containers td:hover {
+   background-color: #50a2bd;
+   color: #403E10;
+   
+   /* font-weight: bold; */
+   
+   /* box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+   transform: translate3d(6px, -6px, 0);
+   
+   transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+   transition-timing-function: line; */
+ }
+ 
+ @media (max-width: 800px) {
+ .containers td:nth-child(4),
+ .containers th:nth-child(4) { display: none; }
+ }
     </style>
     
 </head>
 <body>
     <%- include('C:/Users/Lenovo/DBIS_project_RestaurantDBMS/templates/partials/navbar'); %>
-    <div>
     
-    <h1 style="color:#01a9bb ;text-align: center;">Dashboard</h1>
+    
+    <!-- <h1 style="color:#01a9bb ;text-align: center;">Dashboard</h1>
     <table>
         <tr>
             
@@ -28,20 +151,74 @@
             <td class="b">Attendent</td>
             <td class="b">Amount</td>
         </tr>
-        <% for(let values of resultorder){%>
-            <tr>
-                <td><%= values.id%></td>
-                <td><%= values.type %></td>
-                <td><%= values.table_no %></td>
-                <td><%= values.contents %></td>
-                
-                <td><%= values.date%></td>
-                <td><%= values.attendant%></td>
-                <td><%= values.amount%></td>
-            </tr>
-            <%}%>
-        </table>
+        
+        </table>  -->
+
+        <!-- <h1><span class="blue">&lt;</span>Table<span class="blue">&gt;</span> <span class="yellow">Responsive</pan></h1>
+            <h2>Created with love by <a href="https://github.com/pablorgarcia" target="_blank">Pablo García</a></h2> -->
+            
+            <table class="containers">
+                <thead>
+                    <tr>
+            
+                        <th class="b">Order id</th>
+                        <th class="b">Cust. contact no.</th>
+                        <th class="b">Type</th>
+                        <th class="b">Table no.</th>
+                        <th class="b">Contents</th>
+                        <th class="b">Date</th>
+                        <th class="b">Attendant</th>
+                        <th class="b">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let values of resultorder){%>
+                        <tr>
+                            <td><%= values.oid%></td>
+                            <td><%= values.cphone%></td>
+                            <td><%= values.otype %></td>
+                            <td><%= values.table_no %></td>
+                            <td><%= values.descriptions %></td>
+                            
+                            <td><%= values.odate%></td>
+                            <td><%= values.attendant%></td>
+                            <td><%= values.amount%></td>
+                        </tr>
+                        <%}%>
+                </tbody>
+            </table>
+
+        <!-- <h1>Orders</h1>
+
+<table class="responstable">
+  
+    <tr>
+            
+        <th class="b">Order id</th>
+        <th class="b">Type</th>
+        <th class="b">Table no.</th>
+        <th class="b">Contents</th>
+        <th class="b">Date</th>
+        <th class="b">Attendent</th>
+        <th class="b">Amount</th>
+    </tr>
+
+    <% for(let values of resultorder){%>
+        <tr>
+            <td><%= values.id%></td>
+            <td><%= values.type %></td>
+            <td><%= values.table_no %></td>
+            <td><%= values.contents %></td>
+            
+            <td><%= values.date%></td>
+            <td><%= values.attendant%></td>
+            <td><%= values.amount%></td>
+        </tr>
+        <%}%>
+  
+  
+  
+</table> -->
     
-</div>
 </body>
 </html>

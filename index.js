@@ -11,7 +11,7 @@ const db=mysql.createConnection({
     host:'127.0.0.1',
     user:'root',
     password:'',
-    database:'restaurant'
+    database:'strms'
 })
 
 db.connect((err)=>{
@@ -33,7 +33,7 @@ app.get('/',(req,res)=>{
 
 
 app.get('/views/dashboard',(req,res)=>{
-    let sql='select * from ordertrial'
+    let sql='select * from orders'
     db.query(sql,(err,resultorder)=>{
         if(err) console.log(err)
         res.render("dashboard.ejs",{resultorder})
@@ -44,7 +44,7 @@ app.get('/views/dashboard',(req,res)=>{
  });
  app.get('/views/orders',(req,res)=>{
 
-    let sql=`select * from staff2 `
+    let sql=`select * from staff `
     // .js
 
 
@@ -62,15 +62,53 @@ app.get('/views/dashboard',(req,res)=>{
         var date=req.query.date
         var attendant=req.query.Attendent
         var amount=Number(req.query.Amount)
+        var cname=req.query.cname
+        var phone=req.query.phone
+        var mail=req.query.email
 
-        let sql=`insert into  ordertrial(type,contents,table_no,date,attendant,amount) values('${type}','${contents}',${table},'${date}','${attendant}',${amount}) `
+        let sql=`insert into  orders(otype,descriptions,table_no,odate,attendant,amount,cphone) values('${type}','${contents}',${table},'${date}','${attendant}',${amount},${phone}) `
         // .js
-    
+        let sql1=`select * from customers `
+        let sql2=`insert into customers(cname,phone_no,email) values('${cname}',${phone},'${mail}') `
     
         db.query(sql, (err, results)=>{
             if(err) console.log(err)
-            console.log(attendant)
-            res.render('home.ejs', {results})
+            // console.log(attendant)
+            // res.render('home.ejs', {results})
+        })
+        db.query(sql1, (err1, result1)=>{
+            if(err1) console.log(err1)
+            console.log(result1)
+            var cphone=0;
+            // console.log(attendant)
+            // res.render('home.ejs', {results})
+            for(let values of result1){
+                console.log(values.phone_no)
+                console.log(phone)
+                if(values.phone_no===phone){
+                    cphone=phone;
+                    console.log(values)
+
+                    break;
+                    
+                }
+                
+
+            }
+            console.log(cphone)
+            if(!cphone){
+                db.query(sql2, (err2, result2)=>{
+                    if(err2) console.log(err2)
+                    console.log(result2)
+                    console.log(phone)
+                    // res.render('home.ejs', {results})
+                })
+
+            }
+
+            res.render('home.ejs')
+
+            
         })
     
         });
