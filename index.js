@@ -11,6 +11,7 @@ const db=mysql.createConnection({
     host:'127.0.0.1',
     user:'root',
     password:'',
+
     database:'strms'
 })
 
@@ -30,6 +31,11 @@ app.get('/',(req,res)=>{
 
    res.render("login.ejs")
 });
+app.get('/views/home',(req,res)=>{
+    
+
+    res.render("home.ejs")
+ });
 
 
 app.get('/views/dashboard',(req,res)=>{
@@ -140,9 +146,17 @@ app.get('/views/dashboard',(req,res)=>{
     res.render("Customer_satisfaction.ejs")
  });
  app.get('/views/Menu',(req,res)=>{
+    let sql=`select * from menu `
+
+    db.query(sql, (err, menuresult)=>{
+        if(err) console.log(err)
+        // console.log(attendant)
+        // res.render('home.ejs', {results})
+        res.render("Menu.ejs",{menuresult})
+    })
     
 
-    res.render("Menu.ejs")
+    
  });
 // app.get('/login', (req, res)=>
 // {
@@ -175,7 +189,7 @@ app.get('/views/dashboard',(req,res)=>{
 app.get('/login', (req, res)=>{
     var username=req.query.username
     var password=req.query.password
-    let sql=`select * from staff2 where username='${username}'`
+    let sql=`select * from staff where sname='${username}'`
     // .js
 
 
@@ -183,13 +197,13 @@ app.get('/login', (req, res)=>{
         if(err) console.log(err)
 
         console.log(password)
-        console.log(result.password)
+        console.log(result.spassword)
         if(result.length==0)
         {
             res.render('login.ejs')
             // prompt("useremail does not exist")
         }
-        else if(result[0].password==password)
+        else if(result[0].spassword==password)
         {
             res.render('home.ejs', {result})
         }

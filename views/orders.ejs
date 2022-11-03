@@ -11,17 +11,24 @@
             border-color: aqua;
             /* border-block-style: ; */
         }
+        
     </style>
     
 </head>
-<body>
+<body style="background-color:#DAAD86 ;">
     <%- include('C:/Users/Lenovo/DBIS_project_RestaurantDBMS/templates/partials/navbar'); %>
-    <div>
+  
     
-    <h1 style="color:#01a9bb ;text-align: center;">Orders</h1>
+    <h1 style="color:#032265 ;text-align: center;">Orders</h1>
 
-    <form style="margin-left:50px" action="/order-submit">
-        <div class="form-row">
+
+  <!-- <div style="width:650px; height:300px; margin-left:300px ;margin-top:150 ;background-color:white"></div> -->
+
+    <form style="margin-top:120px ;margin-left:30px ;z-index: -1;background-color: #DAAD86;" action="/order-submit" class="tanwish">
+        <!-- <div class="form-row"> -->
+          <div class="row align-items-center g-3">
+
+
           <div class="form-group col-md-2">
             <label for="inputPassword4">Customer name</label>
             <input type="text" class="form-control" name="cname" id="inputPassword4" placeholder="Table no.">
@@ -34,6 +41,10 @@
             <label for="inputPassword4">Mail id</label>
             <input type="email" class="form-control" name="email" id="inputPassword4" placeholder="Table no.">
           </div>
+
+        </div>
+
+        <div class="row align-items-center g-3">
           <div class="form-group col-md-4">
             <label for="inputEmail4">Order Type</label>
             <input type="text" name="type" class="form-control" id="inputEmail4" placeholder="Dine in or Take away">
@@ -42,19 +53,26 @@
             <label for="inputPassword4">Table no.</label>
             <input type="text" class="form-control" name="table" id="inputPassword4" placeholder="Table no.">
           </div>
-          
         </div>
+          
+        
         <div class="form-group col-md-6">
           <label for="inputAddress">Order contents</label>
           <input type="text" class="form-control"  name="contents" id="inputAddress" placeholder="Describe the menu">
         </div>
-        
-        <div class="form-row">
+
+
+     
+
+        <div class="row align-items-center g-3">
+
           <div class="form-group col-md-2">
             <label for="inputCity">Date</label>
             <input type="date" name="date" class="form-control" id="inputCity">
           </div>
-          <div class="form-group col-md-2">
+        
+
+          <div class="form-group col-md-4">
             <label for="inputState">Attending Staff</label>
             <select id="inputState"  name="Attendent" class="form-control">
               
@@ -65,31 +83,57 @@
               
             </select>
           </div>
-          <div class="form-group col-md-4">
+          
+          
+        </div>
+
+
+        </div>
+          <div class="form-group col-md-6">
             <label for="inputZip">Amount</label>
             <input type="text" name="Amount" class="form-control" id="inputZip">
           </div>
         </div>
-        <div class="form-group">
+
+        <div class="form-group col-md-6" style="display:flex ; align-items:center; justify-content:center">
+        <div class="form-group" >
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck">
             <label class="form-check-label" for="gridCheck">
-              Check me out
+              Check out
             </label>
           </div>
         </div>
+        </div>
+        
+
+      <div class="form-group col-md-6" style="display:flex ; align-items:center; justify-content:center">
+          
         <input type="submit" class="btn btn-primary" onclick="submitForm()"></button>
+      </div>
+      
 
-        <script>
-            function submitForm() {
-            document.contact-form.submit();
-            document.contact-form.reset();
-            }
+      </div>
 
-            
-        </script>
+        
       </form>
 </div>
+
+<div class="absolute"
+style="position:absolute; height: 300px; width: 625px; right: 0;"
+></div>
+
+<!--Table-->
+
+<!--Table--
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script>
+  function submitForm() {
+  document.contact-form.submit();
+  document.contact-form.reset();
+  }
+
+  
+</script>
 </body>
 </html>
