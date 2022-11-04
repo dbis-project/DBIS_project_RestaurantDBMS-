@@ -27,9 +27,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
+/* body{
     background-color: #31b39f;
-}
+} */
 .background{
     width: 430px;
     height: 520px;
@@ -99,7 +99,8 @@ input{
     display: block;
     height: 50px;
     width: 100%;
-    background-color: rgba(255,255,255,0.07);
+    color: rgb(0, 0, 0);
+    /* background-color: rgba(255,255,255,0.07); */
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
@@ -145,20 +146,22 @@ button{
 
     </style>
 </head>
-<body style="background:#659DBD">
+<!-- <body style="background:#659DBD"> -->
+<body style="background-image: url('https://res.cloudinary.com/dlykykfwp/image/upload/v1667553199/samples/food/pot-mussels.jpg')">
+
     
-    <div class="background" style="background:#659DBD" >
+    <div class="background" style="background:#a3d2ee" >
         <!-- <div class="shape"></div>
         <div class="shape"></div> -->
     </div>
-    <form action="/login"  style="background:#BC986A;">
+    <form action="/login"  style="background:#98ecf9;">
         <h3 style="color: #003566">Login Here</h3>
 
         <label for="username" style="color: #003566">Username</label>
-        <input type="text" name="username" placeholder="Email or Phone" id="username">
+        <input type="text" name="username" style="border: 3px; border-color: #003566;" placeholder="Email or Phone" id="username">
 
         <label for="password" style="color: #003566">Password</label>
-        <input type="password" name="password" placeholder="Password" id="password">
+        <input type="password" name="password" style="border: 3px; border-color: #003566;" placeholder="Password" id="password">
         
         <button style="background: #003566">Log In</button>
         <!-- <div class="social">

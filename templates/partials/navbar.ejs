@@ -10,19 +10,27 @@
 
 
         .dropdown-menu{
-            background: #48cae4;
+            background: rgba(255,255,255,0.35);
+            
+            /* border-radius: 0% 0% 50% 50%; */
             /* background:#01a9bb; */
-            border: #8D8741;
-            color:#003566 ;
+            /* border: #8D8741;
+            color:#003566 ; */
             
 
         }
 
         .dropdown-menu .dropdown-item{
-          font-weight: bold;
-          color:#003566 ;
+          /* font-weight: bold; */
+          color:white ;
           border: 1px ;
           border-color: #8D8741;;
+        }
+        .dropdown-menu .dropdown-item:hover{
+          color: black;
+          background: rgba(255,255,255,0.25);
+
+          
         }
         
         .navbar-nav {
@@ -32,23 +40,31 @@
     <!-- <link rel="stylesheet" href="../../public/css/app.css"> -->
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top" style="background:#8D8741;">
+    <nav class="navbar navbar-expand-lg sticky-top" >
         <div class="container-fluid "  style="margin-top:0rem !important"  >
-          <a class="navbar-brand"  href="/view/home" style="color:#003566 ; font-family:Arial, Helvetica, sans-serif ; width:5%;"><strong>ST-RMS</strong></a>
+          <a class="navbar-brand"  href="/views/home" style="color:#003566 ; font-family:Arial, Helvetica, sans-serif ; width:5%;"><strong>ST-RMS</strong></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+          
+          <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left:20px ;">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/views/dashboard" style="color:white">Dashboard</a>
+
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/views/orders" style="color:white">Orders</a>
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li><li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
               </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link active" href="/views/orders" style="color:white">Orders</a>
+              </li> -->
               <li class="nav-item dropdown" >
                 <a class="nav-link dropdown-toggle active"  role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
-                 Kitchen Order_Tickets
+                 Orders
                 </a>
                 <ul class="dropdown-menu " style="border-radius: 0;" >
                   <li ><a class="dropdown-item" href="/views/orders">New Order</a></li>
@@ -56,17 +72,54 @@
                   <li><a class="dropdown-item" href="/views/dashboard">All orders</a></li>
                 </ul>
               </li>
+              
               <li class="nav-item">
-                <a class="nav-link active" href="/views/Reservation" style="color:white">Resrvation</a>
+                <a class="nav-link active" href="" style="color:white"></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/views/Customer_satisfaction" style="color:white">Customers Satisfaction</a>
+                <a class="nav-link active" href="" style="color:white"></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="/views/Menu" style="color:white">Menu</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li><li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li>
+              
+              <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle active"  role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+                 Admin Control
+                </a>
+                <ul class="dropdown-menu " style="border-radius: 0;" >
+                  <li ><a class="dropdown-item" href="/views/edit">Update Menu</a></li>
+                  <li><a class="dropdown-item" href="/views/edit">Update Inventory</a></li>
+                  
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li><li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/views/Customer_satisfaction" style="color:white">Customers Satisfaction</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li><li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li>
+             
+              <li class="nav-item">
                 <a class="nav-link active" href="/views/Inventory" style="color:white">Inventory</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
+              </li><li class="nav-item">
+                <a class="nav-link active" href="" style="color:white"></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active"   href="/views/Suppliers" style="color:white">Suppliers</a>

@@ -145,6 +145,11 @@ app.get('/views/dashboard',(req,res)=>{
 
     res.render("Customer_satisfaction.ejs")
  });
+ app.get('/views/edit',(req,res)=>{
+    
+
+    res.render("edit.ejs")
+ });
  app.get('/views/Menu',(req,res)=>{
     let sql=`select * from menu `
 
