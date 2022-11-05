@@ -92,16 +92,35 @@
  }
  /* Background-color of the odd rows */
  .containers tr:nth-child(odd) {
-       background-color:#00afb9;
+       /* background-color:#00afb9; */
+       /* background-color:  rgba(255, 255, 255,0.25); */
+       background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph');
+       color: #fff3b0;
+       /* opacity: 0.25; */
+       font-weight: bold;
+       font-size: large;
  }
  
  /* Background-color of the even rows */
  .containers tr:nth-child(even) {
-       background-color:#00afb9";
- 
+       /* background-color:#00afb9"; */
+       /* background-color:  rgba(255, 255, 255,0.25); */
+       background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph');
+       color: #fff3b0;
+       /* opacity: 0.25; */
+       font-weight:bold;
+       font-size: large;
  }
  
- .containers td:first-child { color: #032265; }
+ .containers th {
+       /* background-color: #a9def9 ; */
+       opacity: 0.7;
+       background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph');
+       color: #fcf6bd;
+      
+ }
+ 
+ .containers td:first-child { color: #ffffff; }
  
  /* .containers tr:hover {
     background-color: #464A52;
@@ -110,9 +129,10 @@
              box-shadow: 0 6px 6px -6px #0E1119;
  } */
  
- .containers td:hover {
-   background-color:#b8f2e6;
-   color: #403E10;
+ .containers tr:hover {
+   /* background-color:  rgba(60, 141, 152, 0.578); */
+   opacity: 0.80;
+   color: #46e0ff;
    
    /* font-weight: bold; */
    
@@ -133,6 +153,8 @@
     
 </head>
 <body>
+
+<body style="background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); background-size: 100% 100%;">
     <%- include('../templates/partials/navbar'); %>
     
     
