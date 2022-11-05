@@ -12,7 +12,7 @@ const db=mysql.createConnection({
     user:'root',
     password:'',
 
-    database:'strms'
+    database:'sys'
 })
 
 db.connect((err)=>{
@@ -39,7 +39,7 @@ app.get('/views/home',(req,res)=>{
 
 
 app.get('/views/dashboard',(req,res)=>{
-    let sql='select * from orders'
+    let sql='select * from orders1'
     db.query(sql,(err,resultorder)=>{
         if(err) console.log(err)
         res.render("dashboard.ejs",{resultorder})
@@ -50,7 +50,7 @@ app.get('/views/dashboard',(req,res)=>{
  });
  app.get('/views/orders',(req,res)=>{
 
-    let sql=`select * from staff `
+    let sql=`select * from staff1 `
     // .js
 
 
@@ -72,10 +72,10 @@ app.get('/views/dashboard',(req,res)=>{
         var phone=req.query.phone
         var mail=req.query.email
 
-        let sql=`insert into  orders(otype,descriptions,table_no,odate,attendant,amount,cphone) values('${type}','${contents}',${table},'${date}','${attendant}',${amount},${phone}) `
+        let sql=`insert into  orders1(otype,descriptions,table_no,odate,attendant,amount,cphone) values('${type}','${contents}',${table},'${date}','${attendant}',${amount},${phone}) `
         // .js
-        let sql1=`select * from customers `
-        let sql2=`insert into customers(cname,phone_no,email) values('${cname}',${phone},'${mail}') `
+        let sql1=`select * from customers1 `
+        let sql2=`insert into customers1(cname,phone_no,email) values('${cname}',${phone},'${mail}') `
     
         db.query(sql, (err, results)=>{
             if(err) console.log(err)
@@ -146,12 +146,84 @@ app.get('/views/dashboard',(req,res)=>{
     res.render("Customer_satisfaction.ejs")
  });
  app.get('/views/edit',(req,res)=>{
+
+    let sql=`select * from menu1`
+    let sql1=`select * from staff1 where designation='chef'`
+   
+
+    db.query(sql, (err, results1)=>{
+        if(err) console.log(err)
+        res1=results1;
+
+        db.query(sql1, (err, results2)=>{
+            if(err) console.log(err)
+            res1=results2;
+            console.log(results1)
+            console.log(results2)
+            res.render("edit.ejs",{results1, results2})
+    
+            // console.log(attendant)
+            // res.render('home.ejs', {results})
+        })
+
+        
+        // console.log(attendant)
+        // res.render('home.ejs', {results})
+    })
+
+    // db.query(sql1, (err, results2)=>{
+    //     if(err) console.log(err)
+    //     res1=results2;
+
+    //     // console.log(attendant)
+    //     // res.render('home.ejs', {results})
+    // })
+    // console.log(res1)
     
 
-    res.render("edit.ejs")
+    
+ });
+
+ app.get('/updatemenu',(req,res)=>{
+    var iname=req.query.iname
+    var Availablity=req.query.Availablity
+    var chef=req.query.chef
+    var Price=Number(req.query.Price)
+
+    let sql=`update  menu1 set availablity='${Availablity}' ,chef='${chef}',price=${Price} where iname='${iname}'`
+    db.query(sql, (err, result)=>{
+        if(err) console.log(err)
+        // console.log(attendant)
+        // res.render('home.ejs', {results})
+        res.redirect('http://localhost:3500/views/Menu')
+    })
+
+    
+
+    
+ });
+
+ app.get('/additem',(req,res)=>{
+    var iname=req.query.iname
+    var Availablity=req.query.Availablity
+    var chef=req.query.chef
+    var desc=req.query.desc
+    var Price=Number(req.query.Price)
+
+    let sql=`insert into  menu1(iname,availablity,descriptions,price,chef) values ('${iname}','${Availablity}','${desc}',${Price},'${chef}')`
+    db.query(sql, (err, result)=>{
+        if(err) console.log(err)
+        // console.log(attendant)
+        // res.render('home.ejs', {results})
+        res.redirect('http://localhost:3500/views/Menu')
+    })
+
+    
+
+    
  });
  app.get('/views/Menu',(req,res)=>{
-    let sql=`select * from menu `
+    let sql=`select * from menu1 where availablity='available' `
 
     db.query(sql, (err, menuresult)=>{
         if(err) console.log(err)
@@ -194,7 +266,7 @@ app.get('/views/dashboard',(req,res)=>{
 app.get('/login', (req, res)=>{
     var username=req.query.username
     var password=req.query.password
-    let sql=`select * from staff where sname='${username}'`
+    let sql=`select * from staff1 where sname='${username}'`
     // .js
 
 
