@@ -113,15 +113,7 @@ class Customers1(models.Model):
 #         db_table = 'dining_table'
 
 
-class DiningTable1(models.Model):
-    did = models.IntegerField(blank=True, null=True)
-    table_no = models.IntegerField(blank=True, null=True)
-    capacity = models.IntegerField(blank=True, null=True)
-    rstatus = models.CharField(max_length=50, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'dining_table1'
 
 
 class DjangoAdminLog(models.Model):
@@ -169,21 +161,34 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-# class Inventory(models.Model):
-#     material_id = models.IntegerField()
-#     mname = models.CharField(max_length=50, blank=True, null=True)
-#     price = models.IntegerField(blank=True, null=True)
-#     quantity = models.IntegerField(blank=True, null=True)
-#     exp_date = models.DateField(blank=True, null=True)
-#     sid = models.IntegerField(blank=True, null=True)
+class Customers1(models.Model):
+    cid = models.AutoField(primary_key=True)
+    cname = models.CharField(max_length=50, blank=True, null=True)
+    phone_no = models.CharField(max_length=50, blank=True, null=True)
+    email = models.CharField(max_length=40, blank=True, null=True)
 
-#     class Meta:
-#         managed = False
-#         db_table = 'inventory'
+    class Meta:
+        managed = False
+        db_table = 'customers1'
 
+
+class DineTable1(models.Model):
+    table_no = models.AutoField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dine_table1'
+
+
+class DiningTable1(models.Model):
+    table_no = models.AutoField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dining_table1'
 
 class Inventory1(models.Model):
-    material_id = models.IntegerField()
+    material_id = models.IntegerField(primary_key=True)
     mname = models.CharField(max_length=50, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     quantity = models.IntegerField(blank=True, null=True)
@@ -194,31 +199,6 @@ class Inventory1(models.Model):
         managed = False
         db_table = 'inventory1'
 
-
-# class Menu(models.Model):
-#     id = models.IntegerField(blank=True, null=True)
-#     iname = models.CharField(max_length=50, blank=True, null=True)
-#     descriptions = models.CharField(max_length=250, blank=True, null=True)
-#     chef = models.CharField(max_length=50, blank=True, null=True)
-#     availablity = models.CharField(max_length=50, blank=True, null=True)
-#     price = models.FloatField(blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'menu'
-
-
-# class Menu1(models.Model):
-#     id = models.IntegerField(blank=True, null=True)
-#     iname = models.CharField(max_length=50, blank=True, null=True)
-#     descriptions = models.CharField(max_length=250, blank=True, null=True)
-#     chef = models.CharField(max_length=50, blank=True, null=True)
-#     availablity = models.CharField(max_length=50, blank=True, null=True)
-#     price = models.FloatField(blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'menu1'
 
 class Menu1(models.Model):
     iname = models.CharField(max_length=50, blank=True, null=True)
@@ -232,21 +212,6 @@ class Menu1(models.Model):
         db_table = 'menu1'
 
 
-# class Orders(models.Model):
-#     oid = models.AutoField(primary_key=True)
-#     otype = models.CharField(max_length=50, blank=True, null=True)
-#     odate = models.DateField(blank=True, null=True)
-#     descriptions = models.CharField(max_length=500, blank=True, null=True)
-#     table_no = models.IntegerField(blank=True, null=True)
-#     attendant = models.CharField(max_length=50, blank=True, null=True)
-#     amount = models.FloatField(blank=True, null=True)
-#     cphone = models.CharField(max_length=50, blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'orders'
-
-
 class Orders1(models.Model):
     oid = models.AutoField(primary_key=True)
     otype = models.CharField(max_length=50, blank=True, null=True)
@@ -256,44 +221,22 @@ class Orders1(models.Model):
     attendant = models.CharField(max_length=50, blank=True, null=True)
     amount = models.FloatField(blank=True, null=True)
     cphone = models.CharField(max_length=50, blank=True, null=True)
+    status = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'orders1'
 
 
-# class Reservation(models.Model):
-#     table_no = models.IntegerField(blank=True, null=True)
-#     cid = models.IntegerField(blank=True, null=True)
-#     cname = models.CharField(max_length=50, blank=True, null=True)
-#     peoplecount = models.IntegerField(blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'reservation'
-
-
 class Reservation1(models.Model):
     table_no = models.IntegerField(blank=True, null=True)
-    cid = models.IntegerField(blank=True, null=True)
-    cname = models.CharField(max_length=50, blank=True, null=True)
     peoplecount = models.IntegerField(blank=True, null=True)
+    r_date = models.DateField(blank=True, null=True)
+    c_number = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'reservation1'
-
-
-# class RevRat(models.Model):
-#     cid = models.IntegerField()
-#     oid = models.IntegerField(blank=True, null=True)
-#     attendant = models.CharField(max_length=50, blank=True, null=True)
-#     review = models.CharField(max_length=250, blank=True, null=True)
-#     rating = models.IntegerField(blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'rev_rat'
 
 
 class RevRat1(models.Model):
@@ -308,17 +251,6 @@ class RevRat1(models.Model):
         db_table = 'rev_rat1'
 
 
-# class Rexpenses(models.Model):
-#     sid = models.IntegerField(blank=True, null=True)
-#     exptye = models.CharField(max_length=50, blank=True, null=True)
-#     amountspent = models.FloatField(blank=True, null=True)
-#     descriptions = models.CharField(max_length=200, blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'rexpenses'
-
-
 class Rexpenses1(models.Model):
     sid = models.IntegerField(blank=True, null=True)
     exptye = models.CharField(max_length=50, blank=True, null=True)
@@ -330,22 +262,9 @@ class Rexpenses1(models.Model):
         db_table = 'rexpenses1'
 
 
-# class Staff(models.Model):
-#     stid = models.IntegerField()
-#     sname = models.CharField(max_length=50, blank=True, null=True)
-#     designation = models.CharField(max_length=50, blank=True, null=True)
-#     date_joined = models.DateField(blank=True, null=True)
-#     salary = models.IntegerField(blank=True, null=True)
-#     expense_id = models.IntegerField(blank=True, null=True)
-#     spassword = models.CharField(max_length=10, blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'staff'
-
 
 class Staff1(models.Model):
-    stid = models.IntegerField()
+    stid = models.IntegerField(primary_key=True)
     sname = models.CharField(max_length=50, blank=True, null=True)
     designation = models.CharField(max_length=50, blank=True, null=True)
     date_joined = models.DateField(blank=True, null=True)
@@ -358,28 +277,17 @@ class Staff1(models.Model):
         db_table = 'staff1'
 
 
-# class Suppliers(models.Model):
-#     sid = models.IntegerField()
-#     sname = models.CharField(max_length=50, blank=True, null=True)
-#     address = models.CharField(max_length=100, blank=True, null=True)
-#     lastsupply = models.DateField(blank=True, null=True)
-#     contact_no = models.CharField(max_length=10, blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'suppliers'
-
-
 class Suppliers1(models.Model):
     sid = models.IntegerField()
     sname = models.CharField(max_length=50, blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     lastsupply = models.DateField(blank=True, null=True)
-    contact_no = models.CharField(max_length=10, blank=True, null=True)
+    contact_no = models.CharField(primary_key=True, max_length=10)
 
     class Meta:
         managed = False
         db_table = 'suppliers1'
+
 
 
 class SysConfig(models.Model):

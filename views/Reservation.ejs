@@ -8,28 +8,31 @@
     <%- include('../templates/partials/navbar'); %>
     <h1 style="color:#032265 ;text-align: center;">Reservation</h1>
 </head>
-<body style="background-color: red;">
+<body style="background-image: url('https://img.freepik.com/free-photo/tables-chairs-arranged-empty-coffee-shop_107420-96463.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); background-size: 105% 270%;">
    
-    <div>
-        <h3>Reservation</h3>
+<div >
+        <!-- <h3>Reservation</h3> -->
 
-    <form class="row g-3" action="/views/Reservation" id="Availablity">
-      <div class="col-md-3">
-        <label for="inputdate" class="form-label">reservation date</label>
+    <form class="row g-3" style="display:flex ; align-items:center; justify-content:center ;margin-top: 30px;" action="/views/Reservation" id="Availablity">
+      <div class="col-md-3" >
+        <label for="inputdate" class="form-label" style="display:flex ; align-items:center; justify-content:center">Reservation Date</label>
         <% if(locals.bool!=0){ %>
             <input type="date" name="date" class="form-control" id="inputdate" href="views/home.ejs">
             <%}else{%>
                 <input type="date "value=<%=locals.date%> name="date" class="form-control" id="inputdate" href="views/home.ejs">
                 <%}%>
     </div>
-    <div class="col-12">
-        <button type="submit" class="btn btn-primary">Check Availablity</button>
+    <div class="col-12" style="display:flex ; align-items:center; justify-content:center">
+        <button type="submit" class="btn btn-primary">Check Available Tables</button>
       </div>
-    </form>
+    </form style="display:flex ; align-items:center; justify-content:center ;margin-top: 100px;" >
+
     <% if(locals.bool==0){ %>
-    <form class="row g-3" action="/reserve" id="reserve"> 
+    <form class="row g-4"  action="/reserve" id="reserve" > 
+
+      
        <div class="col-md-3">
-        <label for="inputEmail4" class="form-label">Availablity</label>
+        <label for="inputEmail4" class="form-label" style="display:flex ; align-items:center; justify-content:center">Available Tables</label>
         <select id="inputEmail4" name="table_no" class="form-select">
             <% for(let values of result){%> 
                 <option><%=values.table_no%></option>
@@ -38,22 +41,24 @@
         </select>
         </div>
         <div class="col-md-3" >
-            <label for="inputAddress2" class="form-label">customer name</label>
-            <input type="text" class="form-control" name="name" id="cust_name" placeholder="name">
+            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Customer Name</label>
+            <input type="text" class="form-control" name="name" id="cust_name" placeholder="Name">
           </div>
           <div class="col-md-3" >
-            <label for="inputAddress2" class="form-label">customer email</label>
+            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Customer Email</label>
             <input type="text" class="form-control" name="Email" id="cust_email" placeholder="Email">
           </div>
           <div class="col-md-3" >
-            <label for="inputAddress2" class="form-label">customer Number</label>
+            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Customer Number</label>
             <input type="number" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
           </div>
+        <div style="display:flex ; align-items:center; justify-content:center">
           <div class="col-md-3" >
-            <label for="inputAddress2" class="form-label">customer Number</label>
+            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">People Count</label>
             <input type="number" class="form-control" name="num_peop" id="cust_count" placeholder="People Count">
           </div>
-          <div class="col-12">
+        </div>
+          <div class="col-12" style="display:flex ; align-items:center; justify-content:center">
             <button type="submit" class="btn btn-primary">Reserve</button>
           </div>
           <input type="hidden" class="form-control" name="date" id="date" value=<%=locals.date%> >

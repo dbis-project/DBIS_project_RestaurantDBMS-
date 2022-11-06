@@ -405,7 +405,7 @@ app.get('/login', (req, res)=>{
         }
         else
         {
-            res.locals(prom)
+            // res.locals(prom)
             res.render('login.ejs',)
             // prompt("invali password")
         }

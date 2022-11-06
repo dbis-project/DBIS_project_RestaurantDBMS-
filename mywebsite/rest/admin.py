@@ -10,6 +10,8 @@ from .models import RevRat1
 from .models import Rexpenses1
 from .models import Staff1
 from .models import Suppliers1
+from .models import Suppliers1
+from .models import DineTable1
 
 admin.site.register(Customers)
 admin.site.register(Customers1)
@@ -22,3 +24,4 @@ admin.site.register(RevRat1)
 admin.site.register(Rexpenses1)
 admin.site.register(Staff1)
 admin.site.register(Suppliers1)
+admin.site.register(DineTable1)
