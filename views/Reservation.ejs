@@ -4,14 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resrvation</title>
-    
-</head>
-<body>
+    <title>Reservation</title>
     <%- include('../templates/partials/navbar'); %>
+    <h1 style="color:#032265 ;text-align: center;">Reservation</h1>
+</head>
+<body style="background-color: red;">
+   
     <div>
+        <h3>Reservation</h3>
+
+    <form class="row g-3" action="/views/Reservation" id="Availablity">
+      <div class="col-md-3">
+        <label for="inputdate" class="form-label">reservation date</label>
+        <% if(locals.bool!=0){ %>
+            <input type="date" name="date" class="form-control" id="inputdate" href="views/home.ejs">
+            <%}else{%>
+                <input type="date "value=<%=locals.date%> name="date" class="form-control" id="inputdate" href="views/home.ejs">
+                <%}%>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Check Availablity</button>
+      </div>
+    </form>
+    <% if(locals.bool==0){ %>
+    <form class="row g-3" action="/reserve" id="reserve"> 
+       <div class="col-md-3">
+        <label for="inputEmail4" class="form-label">Availablity</label>
+        <select id="inputEmail4" name="table_no" class="form-select">
+            <% for(let values of result){%> 
+                <option><%=values.table_no%></option>
+                <% }%>
+            
+        </select>
+        </div>
+        <div class="col-md-3" >
+            <label for="inputAddress2" class="form-label">customer name</label>
+            <input type="text" class="form-control" name="name" id="cust_name" placeholder="name">
+          </div>
+          <div class="col-md-3" >
+            <label for="inputAddress2" class="form-label">customer email</label>
+            <input type="text" class="form-control" name="Email" id="cust_email" placeholder="Email">
+          </div>
+          <div class="col-md-3" >
+            <label for="inputAddress2" class="form-label">customer Number</label>
+            <input type="number" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
+          </div>
+          <div class="col-md-3" >
+            <label for="inputAddress2" class="form-label">customer Number</label>
+            <input type="number" class="form-control" name="num_peop" id="cust_count" placeholder="People Count">
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Reserve</button>
+          </div>
+          <input type="hidden" class="form-control" name="date" id="date" value=<%=locals.date%> >
+        </form>
+        <!-- <p id="why">hhn</p>
+        <script>
+            document.getElementById("why").innerHTML=document.getElementById('reserve').elements['name'].value;
+          </script> -->
+      <% }%>
+      
+      
+     <!-- <div class="row " >
+        <div class="row " >
+        <div class="col-md-3">
+          <label for="inputPassword4" class="form-label">Specialist Chef</label>
+          <select id="inputEmail4" name="chef" class="form-select">
+          </select>
+        </div>
+        <div class="col-md-3" >
+        <label for="inputAddress2" class="form-label">Price</label>
+        <input type="text" class="form-control" name="Price" id="inputAddress2" placeholder="price">
+      </div>
+      </div>-->
+      
+      
+      
+      
+   
+
     
-    <h1 style="color:#032265 ;text-align: center;">Resrvation</h1>
+    
+   
 </div>
 </body>
 </html>

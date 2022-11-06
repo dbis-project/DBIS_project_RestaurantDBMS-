@@ -1,11 +1,18 @@
-const express=require('express');
-const mysql=require('mysql');
-const app=express();
-const path=require('path')
+const express = require("express")
+const mysql = require("mysql")
+const path = require("path")
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
 
-app.set('view engine','ejs');
-app.set('views',path.join(__dirname,'/views'))
+const app = express();
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "ejs");
+app.set('/', path.join(__dirname, '/views'));
+
+// app.set('view engine','ejs');
+// app.set('views',path.join(__dirname,'/views'))
 app.set('public',path.join(__dirname,'/public'))
+
 
 const db=mysql.createConnection({
     host:'127.0.0.1',
@@ -14,6 +21,27 @@ const db=mysql.createConnection({
 
     database:'sys'
 })
+
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(sessions({
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
+
+// parsing the incoming data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//serving public file
+app.use(express.static(__dirname));
+
+// cookie parser middleware
+app.use(cookieParser());
+
+// a variable to save a session
+var session;
 
 db.connect((err)=>{
     if(err){
@@ -44,6 +72,45 @@ app.get('/views/dashboard',(req,res)=>{
         if(err) console.log(err)
         res.render("dashboard.ejs",{resultorder})
     })
+
+    
+    
+
+    
+ });
+ app.get('/todayorder',(req,res)=>{
+    let sql='select * from orders1 where odate=current_date();'
+    db.query(sql,(err,torder)=>{
+        if(err) console.log(err)
+        res.render("todaysorder.ejs",{torder})
+    })
+
+    
+    
+
+    
+ });
+ app.get('/tpo',(req,res)=>{
+    let sql='select * from orders1 where odate=current_date() and status="pending"'
+    db.query(sql,(err,torder)=>{
+        if(err) console.log(err)
+        res.render("todayspo.ejs",{torder})
+    })
+
+    
+    
+
+    
+ });
+ app.get('/complete/:oid',(req,res)=>{
+    let sql=`update orders1  set status="completed" where oid=${req.params.oid}`
+    db.query(sql,(err,torder)=>{
+        if(err) console.log(err)
+        // res.render("todayspo.ejs",{torder})
+        res.redirect('http://localhost:3500/tpo')
+    })
+
+    
     
 
     
@@ -72,7 +139,7 @@ app.get('/views/dashboard',(req,res)=>{
         var phone=req.query.phone
         var mail=req.query.email
 
-        let sql=`insert into  orders1(otype,descriptions,table_no,odate,attendant,amount,cphone) values('${type}','${contents}',${table},'${date}','${attendant}',${amount},${phone}) `
+        let sql=`insert into  orders1(otype,descriptions,table_no,odate,attendant,amount,cphone,status) values('${type}','${contents}',${table},'${date}','${attendant}',${amount},${phone},'pending') `
         // .js
         let sql1=`select * from customers1 `
         let sql2=`insert into customers1(cname,phone_no,email) values('${cname}',${phone},'${mail}') `
@@ -130,11 +197,11 @@ app.get('/views/dashboard',(req,res)=>{
 
     res.render("Suppliers.ejs")
  });
- app.get('/views/Reservation',(req,res)=>{
+//  app.get('/views/Reservation',(req,res)=>{
     
 
-    res.render("Reservation.ejs")
- });
+//     res.render("Reservation.ejs")
+//  });
  app.get('/views/Inventory',(req,res)=>{
     
 
@@ -263,6 +330,55 @@ app.get('/views/dashboard',(req,res)=>{
 //     })
 // })
 
+app.get('/views/Reservation',(req,res)=>{
+    
+    let date =req.query.date
+    res.locals.date=date;
+    console.log(11);
+    let a_query = `select table_no from dine_table1 where table_no not in(select table_no from reservation1 where r_date='${date}');`
+    if(date!=undefined&&date!=null&&date!=''){
+        db.query(a_query,(err,result)=>{
+            console.log(result);
+            if(err)throw err;
+            res.locals.bool=0;
+            res.render("Reservation.ejs",{result})
+            console.log(res.locals)
+
+        })
+    }else{
+        res.locals.bool=1;
+        let result ={};
+        res.render("Reservation.ejs")
+        
+    }
+ });
+
+app.get('/reserve',(req,res)=>{
+    let cust_num=Number(req.query["Phone Number"]);
+    let cust_name=req.query.name;
+    let cust_email=req.query.Email;
+    let res_table=req.query.table_no;
+    let date = req.query.date;
+    let pep_count=req.query.num_peop;
+    let res_query=`insert  into reservation1(table_no,peoplecount,r_date,c_number) values(${res_table},${pep_count},'${date}',${cust_num})`;
+    db.query(res_query,(err,result)=>{
+        if (err) throw err;
+    })
+    let sql1=`select * from customers1 `
+
+    let sql2=`insert ignore into customers1(cname,phone_no,email) values('${cust_name}',${cust_num},'${cust_email}') `
+
+    db.query(sql2, (err1, result1)=>{
+        if(err1) console.log(err1)
+        console.log(result1)
+        
+       
+
+        
+    res.redirect('http://localhost:3500/views/home');
+})
+});
+
 app.get('/login', (req, res)=>{
     var username=req.query.username
     var password=req.query.password
@@ -282,6 +398,9 @@ app.get('/login', (req, res)=>{
         }
         else if(result[0].spassword==password)
         {
+            session=req.session
+            session.username=req.query.username
+            console.log(req.session.username);
             res.render('home.ejs', {result})
         }
         else
