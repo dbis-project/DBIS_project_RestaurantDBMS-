@@ -6,12 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     
-</head>
-<body style="background-image:url('https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=1060') ; background-size:100% 700% ;">
-    <%- include('../templates/partials/navbar'); %>
-    <div style="width:100% ;height:100%;">
+    <!-- <style>
+        /* html{
+        height: 100%;
+      } */
+      body{
+        /* min-height: 100%; */
+        /* backdrop-filter: blur(5px); */
+        height: 100%;
+
+      }
+      .item{
+        background-image:url('https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=1060');
+        width: 100%;
+        height: 700px;
+        z-index: -1;
+      }
+    </style> -->
+    <style>
+
+        html{
+            background-image:url('https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=1060');
+            backdrop-filter: blur(3px);
+            background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-size: 100% 100%;
+          
+            
+        }
+
+       
+      
+        </style>
     
-    <h1 style="color:#032265;text-align: center;">HOME PAGE</h1>
+</head>
+<body style="background:transparent;">
+    <%- include('../templates/partials/navbar'); %>
+    
+    
+    <div class="item">
+    
+        <h1 style="color:#032265;text-align: center;">HOME PAGE</h1>
+        
 </div>
 </body>
 </html>

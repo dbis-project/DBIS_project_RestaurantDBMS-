@@ -20,13 +20,13 @@
  /* @charset "UTF-8"; */
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
  
- body {
+ /* body {
    font-family: 'Open Sans', sans-serif;
    font-weight: 300;
    line-height: 1.42em;
    color:#aaa1ae;
    background-color:#1F2739;
- }
+ } */
  
  h1 {
    font-size:3em; 
@@ -76,7 +76,8 @@
  .containers {
        text-align: center;
        overflow: hidden;
-       width: 70%;
+       width: 57%;
+       margin-top:65px;
        /* margin: 0 auto; */
    display: table;
    padding: 0 0 0 0;
@@ -94,7 +95,7 @@
  .containers tr:nth-child(odd) {
        /* background-color:#00afb9; */
        /* background-color:  rgba(255, 255, 255,0.25); */
-       background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph');
+       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
        color: #fff3b0;
        /* opacity: 0.25; */
        font-weight: bold;
@@ -105,7 +106,7 @@
  .containers tr:nth-child(even) {
        /* background-color:#00afb9"; */
        /* background-color:  rgba(255, 255, 255,0.25); */
-       background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph');
+       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
        color: #fff3b0;
        /* opacity: 0.25; */
        font-weight:bold;
@@ -115,7 +116,7 @@
  .containers th {
        /* background-color: #a9def9 ; */
        opacity: 0.7;
-       background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph');
+       
        color: #fcf6bd;
       
  }
@@ -150,25 +151,40 @@
  .containers th:nth-child(4) { display: none; }
  }
     </style>
+
+<%- include('../templates/partials/navbar'); %>
     
+
+<style>
+  html{
+            background-image:url('https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=1060');
+            backdrop-filter: blur(3px);
+            background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-size: 100% 100%;
+          
+            
+        }
+  </style>
 </head>
-<body>
+<body style="background-color: transparent; ">
 
-<body style="background-image: url('https://img.freepik.com/premium-photo/black-wooden-background-old-wooden-texture_88281-3221.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); background-size: 100% 100%;">
-    <%- include('../templates/partials/navbar'); %>
+<!-- <body style="background-image: url('https://img.freepik.com/premium-photo/black-wooden-background-old-wooden-texture_88281-3221.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); background-size: 100% 100%;"> -->
+    
 
-    <h1 style="color:#032265 ;text-align: center;">Menu</h1>
-    <<div  style="display:flex ; align-items:center; justify-content:center">
+    
+    <div  style="display:flex ; align-items:center; justify-content:center">
 
     
    
 
     
 
-    <table class="containers"  ">
+    <table class="containers"  >
 
         <!--Table head-->
-        <thead>
+        <thead style="top: 0;">
           <tr>
             <th>Sr no.</th>
             <th>Item Name</th>
