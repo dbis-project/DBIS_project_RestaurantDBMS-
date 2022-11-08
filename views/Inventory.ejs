@@ -5,13 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory</title>
-    
-</head>
-<body>
     <%- include('../templates/partials/navbar'); %>
-    <div>
-    
     <h1 style="color:#032265 ;text-align: center;">Inventory</h1>
+    <link rel="stylesheet" href="../public/css/inventory.css">
+  
+</head>
+<body style="background-color:blue ;">
+    
+    <div>
+        <%if(locals.bool==1){%>
+        <table class="containers" action="views/Inventory">
+            <!-- <div class="tbl-header"> -->
+            <thead>
+                <tr>
+                    <th class="b">material id</th>
+                    <th class="b">item name</th>
+                    <th class="b">Price</th>
+                    <th class="b">Quantity</th>
+                    <th class="b"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let values of result){%>
+                    <tr>
+                        <td><%= values.material_id%></td>
+                        <td><%= values.mname%></td>
+                        <td><%= values.price %></td>
+                        
+                        <% if(typeof values.unit_m!='object'){%>
+                        <td><%= (values.quantity+' '+(values.unit_m))%></td>
+                        <%}else{%>
+                        <td><%= (values.quantity)%></td>
+                        <%}%>
+                        <td>     </td>
+                        <!-- <td></%= values.descriptions %></td>
+                        
+                        <td></%= values.odate%></td>
+                        <td></%= values.attendant%></td>
+                        <td></%= values.amount%></td> -->
+                        </tr>   
+                    <%}%>
+                    
+            </tbody>
+        </table>
+        <!-- </%}%>
+        </%if(locals.bool==1){%> -->
+            <form>
+        <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
+            <input type="hidden" value="0" name="bool">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+          </form>
+            <%}else{%>
+                <form action="../addinventory">
+                <table class="containers">
+                    <!-- <div class="tbl-header"> -->
+                    <thead>
+                        <tr>
+                            <th class="b">material id</th>
+                            <th class="b">item name</th>
+                            <th class="b">Price</th>
+                            <th class="b">Quantity</th>
+                            <th class ="b">quantity used</th>
+                            <th class ="b">quantity submitted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let values of result){%>
+                            <tr>
+                                <td><%= values.material_id%></td>
+                                <td><%= values.mname%></td>
+                                <td><%= values.price %></td>
+                                
+                                <% if(typeof values.unit_m!='object'){%>
+                                <td><%= (values.quantity+' '+(values.unit_m))%></td>
+                                <%}else{%>
+                                <td><%= (values.quantity)%></td>
+                                <%}%>
+                                <td><input type="number" min =0 name=<%=values.material_id+"qu"%>></td>
+                                <td><input type="number" min =0 name=<%=values.material_id+"qs"%>></td>
+                                </tr> 
+                           
+                            <%}%>
+                            
+                    </tbody>
+                </table>
+                <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+            </form>  
+                <% } %> 
+
 </div>
 </body>
 </html>

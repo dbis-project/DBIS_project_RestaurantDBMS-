@@ -211,16 +211,42 @@ app.get('/views/Suppliers', (req, res) => {
 
 //     res.render("Reservation.ejs")
 //  });
-app.get('/views/Inventory', (req, res) => {
+app.get('/views/Inventory',(req,res)=>{
+    let inv_query="select * from inventory1"
+    let bool =req.query.bool;
+    if(bool==0){
+        res.locals.bool=0;
+    }else{
+        res.locals.bool=1;
+    }
+    db.query(inv_query,(err,result)=>{
+        if(err) throw err;
+        res.render("Inventory.ejs",{result})
+    });
 
+    
+ });
+ app.get('/addinventory',(req,res)=>{
+    let mat_query = "select material_id from inventory1"
+    db.query(mat_query,(err,result)=>{
+            for(let values of result){
+                let material_used=req.query[values.material_id+'qu'];
+                let material_submit=req.query[values.material_id+'qs'];
+                let diff=Number(material_submit)-Number(material_used);
+                let add_query =`update ignore inventory1 set quantity=quantity+${diff} where material_id=${values.material_id}`
+                console.log(add_query);
+                db.query(add_query,(err,result1)=>{
 
-    res.render("Inventory.ejs")
-});
+                });
+            }
+            res.redirect('/views/Inventory')
+    });
+ });
 app.get('/views/logout', (req, res) => {
     req.session.destroy();
 
 
-    res.render("home.ejs")
+    res.render("login.ejs")
 });
 
 app.get('/views/editpage', (req, res) => {
