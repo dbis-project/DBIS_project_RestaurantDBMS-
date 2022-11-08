@@ -72,7 +72,7 @@ app.get('/views/home', (req, res) => {
 
 
 app.get('/views/dashboard', (req, res) => {
-    let sql = 'select * from orders1 natural join customers1'
+    let sql = 'select * from orders1 '
     db.query(sql, (err, resultorder) => {
         if (err) console.log(err)
         for(let values of resultorder)
@@ -153,14 +153,15 @@ app.get('/order-submit', (req, res) => {
     let sql1 = `select * from customers1 `
     let sql2 = `insert into customers1(cname,phone_no,email) values('${cname}',${phone},'${mail}') `
 
-    db.query(sql, (err, results) => {
-        if (err) console.log(err)
-        // console.log(attendant)
-        // res.render('home.ejs', {results})
-    })
+   
     db.query(sql1, (err1, result1) => {
         if (err1) console.log(err1)
         console.log(result1)
+        db.query(sql, (err, results) => {
+            if (err) console.log(err)
+            // console.log(attendant)
+            // res.render('home.ejs', {results})
+        })
         var cphone = 0;
         // console.log(attendant)
         // res.render('home.ejs', {results})
