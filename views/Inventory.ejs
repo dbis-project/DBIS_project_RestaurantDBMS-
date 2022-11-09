@@ -7,12 +7,224 @@
     <title>Inventory</title>
     <%- include('../templates/partials/navbar'); %>
     <h1 style="color:#032265 ;text-align: center;">Inventory</h1>
-    <link rel="stylesheet" href="../public/css/inventory.css">
+    <!-- <link rel="stylesheet" href="../public/css/inventory.css"> -->
+   <style>
+    
+
+
+    .b{
+            font-weight: bold;
+        }
+        /*	
+	Table Responsive
+	===================
+	Author: https://github.com/pablorgarcia
+ */
+
+ /* @charset "UTF-8"; */
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+ 
+ 
+ 
+ h1 {
+   font-size:3em; 
+   font-weight: 300;
+   line-height:1em;
+   text-align: center;
+   color: #4DC3FA;
+ }
+ 
+ h2 {
+   font-size:1em; 
+   font-weight: 300;
+   text-align: center;
+   display: block;
+   line-height:1em;
+   padding-bottom: 2em;
+   color: #FB667A;
+ }
+ 
+ h2 a {
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #FB667A;
+   text-decoration: none;
+ }
+ 
+ .blue { color: #185875; }
+ .yellow { color: #FFF842; }
+ 
+ .containers th  {
+       font-weight: bold;
+       font-size: 1em;
+   text-align: center;
+   color: #032265;
+   background-color: #faedcd;
+ }
+ 
+ .containers td {
+       font-weight: normal;
+       font-size: 1em;
+       text-align: center;
+       
+   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+        -moz-box-shadow: 0 2px 2px -2px #0E1119;
+             box-shadow: 0 2px 2px -2px #0E1119;
+ }
+ 
+ .containers {
+       text-align: left;
+       overflow: hidden;
+       width: 90%;
+       /* margin: 0 auto; */
+   display: table;
+   padding: 0 0 0 0;
+   
+   
+   
+ }
+ 
+ .containers td, .containers th {
+       padding-bottom: 2.75%;
+       padding-top: 2.75%;
+   padding-left:2%;  
+   padding: 2%;
+   /* margin: ; */
+   
+ }
+ /* Background-color of the odd rows */
+ .containers tr:nth-child(odd) {
+       /* background-color:#00afb9; */
+       /* background-color:  rgba(255, 255, 255,0.25); */
+       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
+       color: #fff3b0;
+       /* opacity: 0.25; */
+       font-weight: bold;
+       font-size: large;
+       opacity: 0.80;
+   color: #46e0ff;
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+ }
+ 
+ 
+ /* Background-color of the even rows */
+ .containers tr:nth-child(even) {
+       /* background-color:#00afb9; */
+       /* background-color:  rgba(255, 255, 255,0.25); */
+       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
+       color : #fff3b0; 
+       /* opacity: 0.25; */
+       font-weight:bold;
+       font-size: large;
+       opacity: 0.80;
+   color: #46e0ff;
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+  
+ }
+ 
+ 
+ .containers th {
+       background-color:transparent ;
+       opacity: 0.7;
+       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
+       color: #c90216;
+       backdrop-filter: blur(3px);
+       opacity: 0.80;
+   
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+
+ }
+      
+ 
+ 
+ .containers td:first-child { color: #ffffff; }
+ 
+ /* .containers tr:hover {
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+ } */
+ 
+ .containers tr:hover {
+   /* background-color:  rgba(60, 141, 152, 0.578); */
+   opacity: 0.80;
+   color: #46e0ff;
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+   box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+   transform: translate3d(6px, -6px, 0);
+   
+   transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+   transition-timing-function: line;
+ }
+   
+   /* font-weight: bold; */
+   
+   /* box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+   transform: translate3d(6px, -6px, 0);
+   
+   transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+   transition-timing-function: line; */
+ 
+ 
+ @media (max-width: 800px) {
+ .containers td:nth-child(4),
+ .containers th:nth-child(4) { display: none; }
+ }
+ html{
+            background-image:url('http://www.khyberrestaurant.com/assets/img/IMG/KhyberWebImg-07.jpg');
+            /* backdrop-filter: blur(3px); */
+            background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-size: 100% 100%;
+          
+            
+        }
+
+        html{
+          
+          backdrop-filter: blur(3px);
+        }
+    
+   </style>
   
 </head>
-<body style="background-color:blue ;">
+<body  style="background-color:transparent">
     
-    <div>
+    <!-- <div style="display:flex ;align-items:center; justify-content:center">    -->
         <%if(locals.bool==1){%>
         <table class="containers" action="views/Inventory">
             <!-- <div class="tbl-header"> -->
@@ -96,6 +308,6 @@
             </form>  
                 <% } %> 
 
-</div>
+    <!-- </div> -->
 </body>
 </html>

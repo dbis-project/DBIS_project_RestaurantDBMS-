@@ -61,7 +61,7 @@
        font-size: 1em;
    text-align: center;
    color: #032265;
-   /* background-color: #FBEEC1; */
+   background-color: #faedcd;
  }
  
  .containers td {
@@ -77,17 +77,21 @@
  .containers {
        text-align: left;
        overflow: hidden;
-       width: 100%;
+       width: 90%;
        /* margin: 0 auto; */
    display: table;
    padding: 0 0 0 0;
+   
+   
+   
  }
  
  .containers td, .containers th {
        padding-bottom: 2.75%;
        padding-top: 2.75%;
-   /* padding-left:2%;   */
-   /* padding: 2%; */
+   padding-left:2%;  
+   padding: 2%;
+   /* margin: ; */
    
  }
  /* Background-color of the odd rows */
@@ -99,26 +103,62 @@
        /* opacity: 0.25; */
        font-weight: bold;
        font-size: large;
+       opacity: 0.80;
+   color: #46e0ff;
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
  }
+ 
  
  /* Background-color of the even rows */
  .containers tr:nth-child(even) {
-       /* background-color:#00afb9"; */
+       /* background-color:#00afb9; */
        /* background-color:  rgba(255, 255, 255,0.25); */
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #fff3b0;
+       color : #fff3b0; 
        /* opacity: 0.25; */
        font-weight:bold;
        font-size: large;
+       opacity: 0.80;
+   color: #46e0ff;
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+  
  }
  
+ 
  .containers th {
-       /* background-color: #a9def9 ; */
+       background-color:transparent ;
        opacity: 0.7;
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #fcf6bd;
-      
+       color: #c90216;
+       backdrop-filter: blur(3px);
+       opacity: 0.80;
+   
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+
  }
+      
+ 
  
  .containers td:first-child { color: #ffffff; }
  
@@ -133,6 +173,22 @@
    /* background-color:  rgba(60, 141, 152, 0.578); */
    opacity: 0.80;
    color: #46e0ff;
+    
+    background-color: #464A52;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+   box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+   transform: translate3d(6px, -6px, 0);
+   
+   transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+   transition-timing-function: line;
+ }
    
    /* font-weight: bold; */
    
@@ -143,14 +199,14 @@
        transition-duration: 0.4s;
        transition-property: all;
    transition-timing-function: line; */
- }
+ 
  
  @media (max-width: 800px) {
  .containers td:nth-child(4),
  .containers th:nth-child(4) { display: none; }
  }
  html{
-            background-image:url('https://img.freepik.com/premium-photo/cozy-restaurant-with-people-waiter_175935-230.jpg?w=1060');
+            background-image:url('http://www.khyberrestaurant.com/assets/img/IMG/KhyberWebImg-02.jpg');
             /* backdrop-filter: blur(3px); */
             background-repeat: no-repeat;
           background-attachment: fixed;
@@ -173,7 +229,7 @@
 <!-- <body style="background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); background-size: 100% 100%;backdrop-filter: blur(5px);"> -->
     
     
-    
+<div style="display:flex ;align-items:center; justify-content:center">    
     <!-- <h1 style="color:#01a9bb ;text-align: center;">Dashboard</h1>
     <table>
         <tr>
@@ -231,14 +287,14 @@
 
   
   
-</table> -->
+
 <!-- <script>
     $(window).on("load resize ", function() {
   var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
   $('.tbl-header').css({'padding-right':scrollWidth});
 }).resize();
 </script> -->
-    
+</div>    
 </body>
 
 </html>
