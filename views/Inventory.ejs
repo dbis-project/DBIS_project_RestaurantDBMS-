@@ -299,14 +299,56 @@
                                 </tr> 
                            
                             <%}%>
-                            
+                              
                     </tbody>
                 </table>
                 <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
             </form>  
+            <form action="/addmaterial" method="post">
+                <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Material name</label>
+                    <input type="text" class="form-control" name="mname" id="cust_number" placeholder="Phone Number">
+                  </div>
+                  <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">price</label>
+                    <input type="text" class="form-control" name="price" id="cust_number" placeholder="Phone Number">
+                  </div>
+                  <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Quantity intial</label>
+                    <input type="text" class="form-control" name="iquantity" id="cust_number" placeholder="Phone Number">
+                  </div>
+                  <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">unit of measument</label>
+                    <input type="text" class="form-control" name="unit_m" id="cust_number" placeholder="Phone Number">
+                  </div>
+                  <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
+                    <input type="hidden" value="0" name="bool">
+                    <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+
                 <% } %> 
+                <!-- <div>
+                    <form>
+                        <div class="col-md-3" >
+                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Material name</label>
+                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
+                          </div>
+                          <div class="col-md-3" >
+                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">price</label>
+                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
+                          </div>
+                          <div class="col-md-3" >
+                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Quantity intial</label>
+                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
+                          </div>
+                          <div class="col-md-3" >
+                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">unit of measument</label>
+                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
+                          </div>
+                    </form>
+                </div> -->
 
     <!-- </div> -->
 </body>

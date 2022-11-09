@@ -17,7 +17,7 @@ app.set('public', path.join(__dirname, '/public'))
 const db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: '',
+    password: 'password',
 
     database: 'sys'
 })
@@ -237,7 +237,6 @@ app.get('/views/Inventory',(req,res)=>{
                 let add_query =`update ignore inventory1 set quantity=quantity+${diff} where material_id=${values.material_id}`
                 console.log(add_query);
                 db.query(add_query,(err,result1)=>{
-
                 });
             }
             res.redirect('/views/Inventory')
@@ -331,18 +330,33 @@ app.get('/additem', (req, res) => {
     var desc = req.query.desc
     var Price = Number(req.query.Price)
 
-    let sql = `insert into  menu1(iname,availablity,descriptions,price,chef) values ('${iname}','${Availablity}','${desc}',${Price},'${chef}')`
+    let sql = `insert ignore into  menu1(iname,availablity,descriptions,price,chef) values ('${iname}','${Availablity}','${desc}',${Price},'${chef}')`
     db.query(sql, (err, result) => {
         if (err) console.log(err)
         // console.log(attendant)
         // res.render('home.ejs', {results})
         res.redirect('http://localhost:3500/views/Menu')
     })
-
-
-
-
 });
+app.post('/addmaterial',(req,res)=>{
+    let material=req.body.mname;
+    let price =req.body.price;
+    let iquantity=req.body.iquantity
+    let unit_m=req.body.unit_m
+    // console.log(req.body);
+    // console.log(req.body);
+    if(unit_m!=''){
+        let add_query =`insert into inventory1(mname,price,quantity,unit_m) values ('${material}',${price},${iquantity},'${unit_m}') `;
+        db.query(add_query, (err,result)=>{
+            // if(err)throw err;
+        });
+       
+    }else{
+        let add_query =`insert into inventory1(mname,price,quantity) values ('${material}',${price},${iquantity}) `;
+    db.query(add_query);
+    }
+    res.redirect('/views/Inventory?bool=0');
+})
 app.get('/views/Menu', (req, res) => {
     let sql = `select * from menu1 where availablity='available' `
 
