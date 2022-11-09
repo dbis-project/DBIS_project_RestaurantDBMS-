@@ -66,7 +66,7 @@
             }
 
             .containers th {
-                font-weight: bold;
+                font-weight: bolder;
                 font-size: 1em;
                 text-align: center;
                 color: #032265;
@@ -86,7 +86,7 @@
             .containers {
                 text-align: left;
                 overflow: hidden;
-                width: 70%;
+                width: 90%;
                 /* margin: 0 auto; */
                 display: table;
                 padding: 0 0 0 0;
@@ -97,10 +97,11 @@
 
             .containers td,
             .containers th {
-                padding-bottom: 2.75%;
-                padding-top: 2.75%;
-                padding-left: 2%;
-                padding: 2%;
+                padding-bottom: 2.75px;
+                padding-top: 2.75px;
+                padding-left: 2px;
+                padding: 2px;
+                height: 50px;
                 /* margin: ; */
 
             }
@@ -246,8 +247,10 @@
 
 <body style="background-color:transparent">
 
-    <div style="display:flex ;align-items:center; justify-content:center">
-        <%if(locals.bool==1){%>
+           
+    <%if(locals.bool==1){%>
+        <div style="display:flex ;align-items:center; justify-content:center">
+        
             <table class="containers" action="views/Inventory">
                 <!-- <div class="tbl-header"> -->
                 <thead>
@@ -287,10 +290,10 @@
                         </tr>   
                     <%}%>
                     
-            </tbody>
-        </table>
-    </div>
-
+                </tbody>
+            </table>
+   
+        </div>
 
         <div style="display:flex ;align-items:center; justify-content:center"> 
           <!-- </%}%>
@@ -305,20 +308,23 @@
     
         
           
-         <%}else{%>
-            <div style="display:flex ;align-items:center; justify-content:center"> 
-             
-             <form action="../addinventory">
-                <table class="containers">
+    <%}else{%>
+
+       
+        
+    <div style="display:flex ;align-items:center; justify-content:center">    
+        <form style="width:900px;height:170px"  action="../addinventory">
+            <div  style="display:flex ;align-items:center; justify-content:center"> 
+                <table class="containers" style="width:900px;height:170px">
                     <!-- <div class="tbl-header"> -->
                     <thead>
                         <tr>
-                            <th class="b">material id</th>
-                            <th class="b">item name</th>
+                            <th class="b">Material id</th>
+                            <th class="b">Item name</th>
                             <th class="b">Price</th>
                             <th class="b">Quantity</th>
-                            <th class ="b">quantity used</th>
-                            <th class ="b">quantity submitted</th>
+                            <th class ="b">Q. Consumed</th>
+                            <th class ="b">stock arrv.</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -334,8 +340,8 @@
                                 <%}else{%>
                                 <td><%= (values.quantity)%></td>
                                 <%}%>
-                                <td><input class="col-md-3" type="number" min =0 name=<%=values.material_id+"qu"%>></td>
-                                <td><input class="col-md-3" type="number" min =0 name=<%=values.material_id+"qs"%>></td>
+                                <td><input class="col-md-6" type="number" min =0 name=<%=values.material_id+"qu"%>></td>
+                                <td><input class="col-md-6" type="number" min =0 name=<%=values.material_id+"qs"%>></td>
                                 </tr> 
                                 
 
@@ -344,62 +350,52 @@
                               
                     </tbody>
                 </table>
-                <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
-                  <button type="submit" class="btn btn-primary">Update</button>
-                </div>
-              </form>
+
             </div>
 
+                <div  style="display:flex ; align-items:center; justify-content:center">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+        </form>
 
-        <div class=" form-group row"style="display:flex ;align-items:center; justify-content:center">
+        
+       
+    </div>  
+
+
+    
+
+    <div class=" form-group row"style="display:flex ;align-items:center; justify-content:center; margin: top 10px;">
         
         
-            <form action="/addmaterial" method="post">
-               <div class="form-row"></div> 
-                  <div class="col-md-2" >
-                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Material name</label>
-                    <input type="text" class="form-control" name="mname" id="cust_number" placeholder="Phone Number">
+            <form  class="row g-4"action="/addmaterial" method="post">
+                
+                  <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center ;color:#e6b609 ;font-weight: 700;">Material name</label>
+                    <input type="text" class="form-control" name="mname" id="cust_number" placeholder="Name">
                   </div>
-                  <div class="col-md-2" >
-                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">price</label>
-                    <input type="text" class="form-control" name="price" id="cust_number" placeholder="Phone Number">
+                  <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center ;color:#e6b609 ;font-weight: 700;">Price</label>
+                    <input type="text" class="form-control" name="price" id="cust_number" placeholder="Price">
                   </div>
-                  <div class="col-md-2" >
-                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Quantity intial</label>
-                    <input type="text" class="form-control" name="iquantity" id="cust_number" placeholder="Phone Number">
+                  <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center ;color:#e6b609 ;font-weight: 700;">Quantity intial</label>
+                    <input type="text" class="form-control" name="iquantity" id="cust_number" placeholder="Quantity">
                   </div>
-                  <div class="col-md-2" >
-                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">unit of measument</label>
-                    <input type="text" class="form-control" name="unit_m" id="cust_number" placeholder="Phone Number">
+                  <div class="col-md-3" >
+                    <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center ;color:#e6b609 ;font-weight: 700;">Unit of Measument</label>
+                    <input type="text" class="form-control" name="unit_m" id="cust_number" placeholder="Unit">
                   </div>
-                  <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
+                   
+                  <div class="col-12" style="display:flex ; align-items:center; justify-content:center">
                     <input type="hidden" value="0" name="bool">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                  </div>  
-                </div>  
+                    <button type="submit" class="btn btn-primary">Add Material</button>
+                  </div> 
+                 
             </form>
-         </div>
-       <% } %> 
-                <!-- <div>
-                    <form>
-                        <div class="col-md-3" >
-                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Material name</label>
-                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
-                          </div>
-                          <div class="col-md-3" >
-                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">price</label>
-                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
-                          </div>
-                          <div class="col-md-3" >
-                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Quantity intial</label>
-                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
-                          </div>
-                          <div class="col-md-3" >
-                            <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">unit of measument</label>
-                            <input type="text" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
-                          </div>
-                    </form>
-                </div> -->
+    </div>
+    <% } %> 
+                
 
     
 </body>
