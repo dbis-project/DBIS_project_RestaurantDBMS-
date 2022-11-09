@@ -99,14 +99,14 @@
        /* background-color:#00afb9; */
        /* background-color:  rgba(255, 255, 255,0.25); */
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #fff3b0;
+       /* color: #fff3b0; */
        /* opacity: 0.25; */
        font-weight: bold;
        font-size: large;
        opacity: 0.80;
-   color: #46e0ff;
+   color: #ffd25a;
     
-    background-color: #464A52;
+    background-color: rgba(30, 21, 42, 0.65);
  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
              box-shadow: 0 6px 6px -6px #0E1119;
@@ -121,14 +121,14 @@
        /* background-color:#00afb9; */
        /* background-color:  rgba(255, 255, 255,0.25); */
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color : #fff3b0; 
+       /* color : #fff3b0;  */
        /* opacity: 0.25; */
        font-weight:bold;
        font-size: large;
        opacity: 0.80;
-   color: #46e0ff;
-    
-    background-color: #464A52;
+   color: #ffd25a;
+  
+    background-color:rgba(30, 21, 42, 0.65);
  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
              box-shadow: 0 6px 6px -6px #0E1119;
@@ -143,12 +143,13 @@
        background-color:transparent ;
        opacity: 0.7;
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #c90216;
+       color: #e7cc74;
        backdrop-filter: blur(3px);
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
        opacity: 0.80;
    
     
-    background-color: #464A52;
+    background-color:rgba(7, 4, 4, 0.85);
  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
              box-shadow: 0 6px 6px -6px #0E1119;
@@ -160,7 +161,8 @@
       
  
  
- .containers td:first-child { color: #ffffff; }
+ .containers td:first-child { color: #ff8841;
+font-weight: bold; }
  
  /* .containers tr:hover {
     background-color: #464A52;
@@ -169,20 +171,21 @@
              box-shadow: 0 6px 6px -6px #0E1119;
  } */
  
- .containers tr:hover {
+ .containers #hover:hover {
    /* background-color:  rgba(60, 141, 152, 0.578); */
-   opacity: 0.80;
-   color: #46e0ff;
+   /* opacity: 0.80; */
+   color: #ffd25a;
+   background-color:rgb(62, 56, 56);
     
-    background-color: #464A52;
+    /* background-color: rgba(128, 121, 121, 0.5); */
  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
              box-shadow: 0 6px 6px -6px #0E1119;
 
              /* font-weight: bold; */
    
-   box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-   transform: translate3d(6px, -6px, 0);
+   box-shadow: #4f4e37 -1px 1px, #4f4e37 -2px 2px, #4f4e37 -3px 3px, #4f4e37 -4px 4px, #4f4e37 -5px 5px, #4f4e37 -6px 6px;
+   transform: translate3d(2px, -2px, 0);
    
    transition-delay: 0s;
        transition-duration: 0.4s;
@@ -269,7 +272,7 @@
             <!-- <div class="tbl-content"> -->
                 <tbody>
                     <% for(let values of resultorder){%>
-                        <tr>
+                        <tr id="hover">
                             <td><%= values.oid%></td>
                             <td><%= values.cphone%></td>
                             <td><%= values.otype %></td>

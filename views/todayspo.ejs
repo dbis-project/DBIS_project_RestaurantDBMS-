@@ -8,7 +8,7 @@
     <style>
 
 
-        .b{
+.b{
             font-weight: bold;
         }
         /*	
@@ -24,7 +24,7 @@
    font-family: 'Open Sans', sans-serif;
    font-weight: 300;
    line-height: 1.42em;
-   color:#aaa1ae;
+   color:#A7A1AE;
    background-color:#1F2739;
  }
  
@@ -60,7 +60,8 @@
        font-weight: bold;
        font-size: 1em;
    text-align: center;
-   color: whitesmoke;
+   color: #032265;
+   background-color: #faedcd;
  }
  
  .containers td {
@@ -74,53 +75,94 @@
  }
  
  .containers {
-       text-align: center;
+       text-align: left;
        overflow: hidden;
-       width: 70%;
+       width: 90%;
        /* margin: 0 auto; */
    display: table;
    padding: 0 0 0 0;
+   
+   
+   
  }
  
  .containers td, .containers th {
        padding-bottom: 2.75%;
        padding-top: 2.75%;
-   /* padding-left:2%;   */
-   /* padding: 2%; */
+   padding-left:2%;  
+   padding: 2%;
+   /* margin: ; */
    
  }
- 
  /* Background-color of the odd rows */
  .containers tr:nth-child(odd) {
        /* background-color:#00afb9; */
        /* background-color:  rgba(255, 255, 255,0.25); */
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #fff3b0;
+       /* color: #fff3b0; */
        /* opacity: 0.25; */
        font-weight: bold;
        font-size: large;
+       opacity: 0.80;
+   color: #ffd25a;
+    
+    background-color: rgba(30, 21, 42, 0.65);
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
  }
+ 
  
  /* Background-color of the even rows */
  .containers tr:nth-child(even) {
-       /* background-color:#00afb9"; */
+       /* background-color:#00afb9; */
        /* background-color:  rgba(255, 255, 255,0.25); */
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #fff3b0;
+       /* color : #fff3b0;  */
        /* opacity: 0.25; */
        font-weight:bold;
        font-size: large;
+       opacity: 0.80;
+   color: #ffd25a;
+  
+    background-color:rgba(30, 21, 42, 0.65);
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+  
  }
+ 
  
  .containers th {
-       /* background-color: #a9def9 ; */
+       background-color:transparent ;
        opacity: 0.7;
        /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #fcf6bd;
-      
+       color: #e7cc74;
+       backdrop-filter: blur(3px);
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       opacity: 0.80;
+   
+    
+    background-color:rgba(7, 4, 4, 0.85);
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+
  }
+      
  
- .containers td:first-child { color: #ffffff; }
+ 
+ .containers td:first-child { color: #ff8841;
+font-weight: bold; }
  
  /* .containers tr:hover {
     background-color: #464A52;
@@ -129,10 +171,27 @@
              box-shadow: 0 6px 6px -6px #0E1119;
  } */
  
- .containers tr:hover {
+ .containers #hover:hover {
    /* background-color:  rgba(60, 141, 152, 0.578); */
-   opacity: 0.80;
-   color: #46e0ff;
+   /* opacity: 0.80; */
+   color: #ffd25a;
+   background-color:rgb(62, 56, 56);
+    
+    /* background-color: rgba(128, 121, 121, 0.5); */
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+
+             /* font-weight: bold; */
+   
+   box-shadow: #4f4e37 -1px 1px, #4f4e37 -2px 2px, #4f4e37 -3px 3px, #4f4e37 -4px 4px, #4f4e37 -5px 5px, #4f4e37 -6px 6px;
+   transform: translate3d(2px, -2px, 0);
+   
+   transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+   transition-timing-function: line;
+ }
    
    /* font-weight: bold; */
    
@@ -143,13 +202,12 @@
        transition-duration: 0.4s;
        transition-property: all;
    transition-timing-function: line; */
- }
+ 
  
  @media (max-width: 800px) {
  .containers td:nth-child(4),
  .containers th:nth-child(4) { display: none; }
  }
-
  html {
             background-image:url('http://www.khyberrestaurant.com/assets/img/IMG/KhyberWebImg-02.jpg');
             backdrop-filter: blur(3px);

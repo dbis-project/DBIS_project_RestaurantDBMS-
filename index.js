@@ -189,7 +189,7 @@ app.get('/order-submit', (req, res) => {
 
         }
 
-        res.render('home.ejs')
+        res.redirect('http://localhost:3500/todayorder')
 
 
     })

@@ -1,255 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <%- include('../templates/partials/navbar'); %>
-    <h1 style="color:#032265 ;text-align: center;">Inventory</h1>
-    <!-- <link rel="stylesheet" href="../public/css/inventory.css"> -->
-   <style>
-    
+        <h1 style="color:#032265 ;text-align: center;">Inventory</h1>
+        <!-- <link rel="stylesheet" href="../public/css/inventory.css"> -->
+        <style>
+            .b {
+                font-weight: bold;
+            }
 
-
-    .b{
-            font-weight: bold;
-        }
-        /*	
+            /*	
 	Table Responsive
 	===================
 	Author: https://github.com/pablorgarcia
  */
 
- /* @charset "UTF-8"; */
- @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
- 
- 
- 
- h1 {
-   font-size:3em; 
-   font-weight: 300;
-   line-height:1em;
-   text-align: center;
-   color: #4DC3FA;
- }
- 
- h2 {
-   font-size:1em; 
-   font-weight: 300;
-   text-align: center;
-   display: block;
-   line-height:1em;
-   padding-bottom: 2em;
-   color: #FB667A;
- }
- 
- h2 a {
-   font-weight: 700;
-   text-transform: uppercase;
-   color: #FB667A;
-   text-decoration: none;
- }
- 
- .blue { color: #185875; }
- .yellow { color: #FFF842; }
- 
- .containers th  {
-       font-weight: bold;
-       font-size: 1em;
-   text-align: center;
-   color: #032265;
-   background-color: #faedcd;
- }
- 
- .containers td {
-       font-weight: normal;
-       font-size: 1em;
-       text-align: center;
-       
-   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-        -moz-box-shadow: 0 2px 2px -2px #0E1119;
-             box-shadow: 0 2px 2px -2px #0E1119;
- }
- 
- .containers {
-       text-align: left;
-       overflow: hidden;
-       width: 90%;
-       /* margin: 0 auto; */
-   display: table;
-   padding: 0 0 0 0;
-   
-   
-   
- }
- 
- .containers td, .containers th {
-       padding-bottom: 2.75%;
-       padding-top: 2.75%;
-   padding-left:2%;  
-   padding: 2%;
-   /* margin: ; */
-   
- }
- /* Background-color of the odd rows */
- .containers tr:nth-child(odd) {
-       /* background-color:#00afb9; */
-       /* background-color:  rgba(255, 255, 255,0.25); */
-       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #fff3b0;
-       /* opacity: 0.25; */
-       font-weight: bold;
-       font-size: large;
-       opacity: 0.80;
-   color: #46e0ff;
-    
-    background-color: #464A52;
- -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-        -moz-box-shadow: 0 6px 6px -6px #0E1119;
-             box-shadow: 0 6px 6px -6px #0E1119;
+            /* @charset "UTF-8"; */
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
-             /* font-weight: bold; */
-   
- }
- 
- 
- /* Background-color of the even rows */
- .containers tr:nth-child(even) {
-       /* background-color:#00afb9; */
-       /* background-color:  rgba(255, 255, 255,0.25); */
-       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color : #fff3b0; 
-       /* opacity: 0.25; */
-       font-weight:bold;
-       font-size: large;
-       opacity: 0.80;
-   color: #46e0ff;
-    
-    background-color: #464A52;
- -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-        -moz-box-shadow: 0 6px 6px -6px #0E1119;
-             box-shadow: 0 6px 6px -6px #0E1119;
+            body {
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 300;
+                line-height: 1.42em;
+                color: #A7A1AE;
+                background-color: #1F2739;
+            }
 
-             /* font-weight: bold; */
-   
-  
- }
- 
- 
- .containers th {
-       background-color:transparent ;
-       opacity: 0.7;
-       /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
-       color: #c90216;
-       backdrop-filter: blur(3px);
-       opacity: 0.80;
-   
-    
-    background-color: #464A52;
- -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-        -moz-box-shadow: 0 6px 6px -6px #0E1119;
-             box-shadow: 0 6px 6px -6px #0E1119;
+            h1 {
+                font-size: 3em;
+                font-weight: 300;
+                line-height: 1em;
+                text-align: center;
+                color: #4DC3FA;
+            }
 
-             /* font-weight: bold; */
-   
+            h2 {
+                font-size: 1em;
+                font-weight: 300;
+                text-align: center;
+                display: block;
+                line-height: 1em;
+                padding-bottom: 2em;
+                color: #FB667A;
+            }
 
- }
-      
- 
- 
- .containers td:first-child { color: #ffffff; }
- 
- /* .containers tr:hover {
+            h2 a {
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #FB667A;
+                text-decoration: none;
+            }
+
+            .blue {
+                color: #185875;
+            }
+
+            .yellow {
+                color: #FFF842;
+            }
+
+            .containers th {
+                font-weight: bold;
+                font-size: 1em;
+                text-align: center;
+                color: #032265;
+                background-color: #faedcd;
+            }
+
+            .containers td {
+                font-weight: normal;
+                font-size: 1em;
+                text-align: center;
+
+                -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+                -moz-box-shadow: 0 2px 2px -2px #0E1119;
+                box-shadow: 0 2px 2px -2px #0E1119;
+            }
+
+            .containers {
+                text-align: left;
+                overflow: hidden;
+                width: 70%;
+                /* margin: 0 auto; */
+                display: table;
+                padding: 0 0 0 0;
+
+
+
+            }
+
+            .containers td,
+            .containers th {
+                padding-bottom: 2.75%;
+                padding-top: 2.75%;
+                padding-left: 2%;
+                padding: 2%;
+                /* margin: ; */
+
+            }
+
+            /* Background-color of the odd rows */
+            .containers tr:nth-child(odd) {
+                /* background-color:#00afb9; */
+                /* background-color:  rgba(255, 255, 255,0.25); */
+                /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
+                /* color: #fff3b0; */
+                /* opacity: 0.25; */
+                font-weight: bold;
+                font-size: large;
+                opacity: 0.80;
+                color: #ffd25a;
+
+                background-color: rgba(30, 21, 42, 0.65);
+                -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+                -moz-box-shadow: 0 6px 6px -6px #0E1119;
+                box-shadow: 0 6px 6px -6px #0E1119;
+
+                /* font-weight: bold; */
+
+            }
+
+
+            /* Background-color of the even rows */
+            .containers tr:nth-child(even) {
+                /* background-color:#00afb9; */
+                /* background-color:  rgba(255, 255, 255,0.25); */
+                /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
+                /* color : #fff3b0;  */
+                /* opacity: 0.25; */
+                font-weight: bold;
+                font-size: large;
+                opacity: 0.80;
+                color: #ffd25a;
+
+                background-color: rgba(30, 21, 42, 0.65);
+                -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+                -moz-box-shadow: 0 6px 6px -6px #0E1119;
+                box-shadow: 0 6px 6px -6px #0E1119;
+
+                /* font-weight: bold; */
+
+
+            }
+
+
+            .containers th {
+                background-color: transparent;
+                opacity: 0.7;
+                /* background-image: url('https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-129599.jpg?size=626&ext=jpg&ga=GA1.2.595596343.1667564067&semt=sph'); */
+                color: #e7cc74;
+                backdrop-filter: blur(3px);
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                opacity: 0.80;
+
+
+                background-color: rgba(7, 4, 4, 0.85);
+                -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+                -moz-box-shadow: 0 6px 6px -6px #0E1119;
+                box-shadow: 0 6px 6px -6px #0E1119;
+
+                /* font-weight: bold; */
+
+
+            }
+
+
+
+            .containers td:first-child {
+                color: #ff8841;
+                font-weight: bold;
+            }
+
+            /* .containers tr:hover {
     background-color: #464A52;
  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
              box-shadow: 0 6px 6px -6px #0E1119;
  } */
- 
- .containers tr:hover {
-   /* background-color:  rgba(60, 141, 152, 0.578); */
-   opacity: 0.80;
-   color: #46e0ff;
-    
-    background-color: #464A52;
- -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-        -moz-box-shadow: 0 6px 6px -6px #0E1119;
-             box-shadow: 0 6px 6px -6px #0E1119;
 
-             /* font-weight: bold; */
-   
-   box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-   transform: translate3d(6px, -6px, 0);
-   
-   transition-delay: 0s;
-       transition-duration: 0.4s;
-       transition-property: all;
-   transition-timing-function: line;
- }
-   
-   /* font-weight: bold; */
-   
-   /* box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+            .containers #hover:hover {
+                /* background-color:  rgba(60, 141, 152, 0.578); */
+                /* opacity: 0.80; */
+                color: #ffd25a;
+                background-color: rgb(62, 56, 56);
+
+                /* background-color: rgba(128, 121, 121, 0.5); */
+                -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+                -moz-box-shadow: 0 6px 6px -6px #0E1119;
+                box-shadow: 0 6px 6px -6px #0E1119;
+
+                /* font-weight: bold; */
+
+                box-shadow: #4f4e37 -1px 1px, #4f4e37 -2px 2px, #4f4e37 -3px 3px, #4f4e37 -4px 4px, #4f4e37 -5px 5px, #4f4e37 -6px 6px;
+                transform: translate3d(2px, -2px, 0);
+
+                transition-delay: 0s;
+                transition-duration: 0.4s;
+                transition-property: all;
+                transition-timing-function: line;
+            }
+
+            /* font-weight: bold; */
+
+            /* box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
    transform: translate3d(6px, -6px, 0);
    
    transition-delay: 0s;
        transition-duration: 0.4s;
        transition-property: all;
    transition-timing-function: line; */
- 
- 
- @media (max-width: 800px) {
- .containers td:nth-child(4),
- .containers th:nth-child(4) { display: none; }
- }
- html{
-            background-image:url('http://www.khyberrestaurant.com/assets/img/IMG/KhyberWebImg-07.jpg');
-            /* backdrop-filter: blur(3px); */
-            background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: cover;
-          background-size: 100% 100%;
-          
-            
-        }
 
-        html{
-          
-          backdrop-filter: blur(3px);
-        }
-    
-   </style>
-  
+
+            @media (max-width: 800px) {
+
+                .containers td:nth-child(4),
+                .containers th:nth-child(4) {
+                    display: none;
+                }
+            }
+
+            html {
+                background-image: url('http://www.khyberrestaurant.com/assets/img/IMG/KhyberWebImg-07.jpg');
+                /* backdrop-filter: blur(3px); */
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                background-size: 100% 100%;
+
+
+            }
+
+            html {
+
+                backdrop-filter: blur(3px);
+            }
+        </style>
+
 </head>
-<body  style="background-color:transparent">
-    
-    <!-- <div style="display:flex ;align-items:center; justify-content:center">    -->
+
+<body style="background-color:transparent">
+
+    <div style="display:flex ;align-items:center; justify-content:center">
         <%if(locals.bool==1){%>
-        <table class="containers" action="views/Inventory">
-            <!-- <div class="tbl-header"> -->
-            <thead>
-                <tr>
-                    <th class="b">material id</th>
-                    <th class="b">item name</th>
-                    <th class="b">Price</th>
-                    <th class="b">Quantity</th>
-                    <th class="b"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(let values of result){%>
+            <table class="containers" action="views/Inventory">
+                <!-- <div class="tbl-header"> -->
+                <thead>
                     <tr>
-                        <td><%= values.material_id%></td>
-                        <td><%= values.mname%></td>
-                        <td><%= values.price %></td>
-                        
-                        <% if(typeof values.unit_m!='object'){%>
-                        <td><%= (values.quantity+' '+(values.unit_m))%></td>
+                        <th class="b">material id</th>
+                        <th class="b">item name</th>
+                        <th class="b">Price</th>
+                        <th class="b">Quantity</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let values of result){%>
+                        <tr>
+                            <td>
+                                <%= values.material_id%>
+                            </td>
+                            <td>
+                                <%= values.mname%>
+                            </td>
+                            <td>
+                                <%= values.price %>
+                            </td>
+
+                            <% if(typeof values.unit_m!='object' ){%>
+                                <td>
+                                    <%= (values.quantity+' '+(values.unit_m))%></td>
                         <%}else{%>
                         <td><%= (values.quantity)%></td>
                         <%}%>
-                        <td>     </td>
+                        
                         <!-- <td></%= values.descriptions %></td>
                         
                         <td></%= values.odate%></td>
@@ -260,16 +289,26 @@
                     
             </tbody>
         </table>
-        <!-- </%}%>
-        </%if(locals.bool==1){%> -->
+    </div>
+
+
+        <div style="display:flex ;align-items:center; justify-content:center"> 
+          <!-- </%}%>
+          </%if(locals.bool==1){%> -->
             <form>
-        <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
+          <div  style="display:flex ; align-items:center; justify-content:center">
             <input type="hidden" value="0" name="bool">
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
-          </form>
-            <%}else{%>
-                <form action="../addinventory">
+            </form>
+        </div>    
+    
+        
+          
+         <%}else{%>
+            <div style="display:flex ;align-items:center; justify-content:center"> 
+             
+             <form action="../addinventory">
                 <table class="containers">
                     <!-- <div class="tbl-header"> -->
                     <thead>
@@ -289,46 +328,58 @@
                                 <td><%= values.mname%></td>
                                 <td><%= values.price %></td>
                                 
-                                <% if(typeof values.unit_m!='object'){%>
-                                <td><%= (values.quantity+' '+(values.unit_m))%></td>
+                                <% if(typeof values.unit_m!=' object'){%>
+                                <td>
+                                    <%= (values.quantity+' '+(values.unit_m))%></td>
                                 <%}else{%>
                                 <td><%= (values.quantity)%></td>
                                 <%}%>
-                                <td><input type="number" min =0 name=<%=values.material_id+"qu"%>></td>
-                                <td><input type="number" min =0 name=<%=values.material_id+"qs"%>></td>
+                                <td><input class="col-md-3" type="number" min =0 name=<%=values.material_id+"qu"%>></td>
+                                <td><input class="col-md-3" type="number" min =0 name=<%=values.material_id+"qs"%>></td>
                                 </tr> 
+                                
+
                            
                             <%}%>
                               
                     </tbody>
                 </table>
                 <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
-            <button type="submit" class="btn btn-primary">Update</button>
-          </div>
-            </form>  
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+
+
+        <div class=" form-group row"style="display:flex ;align-items:center; justify-content:center">
+        
+        
             <form action="/addmaterial" method="post">
-                <div class="col-md-3" >
+               <div class="form-row"></div> 
+                  <div class="col-md-2" >
                     <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Material name</label>
                     <input type="text" class="form-control" name="mname" id="cust_number" placeholder="Phone Number">
                   </div>
-                  <div class="col-md-3" >
+                  <div class="col-md-2" >
                     <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">price</label>
                     <input type="text" class="form-control" name="price" id="cust_number" placeholder="Phone Number">
                   </div>
-                  <div class="col-md-3" >
+                  <div class="col-md-2" >
                     <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Quantity intial</label>
                     <input type="text" class="form-control" name="iquantity" id="cust_number" placeholder="Phone Number">
                   </div>
-                  <div class="col-md-3" >
+                  <div class="col-md-2" >
                     <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">unit of measument</label>
                     <input type="text" class="form-control" name="unit_m" id="cust_number" placeholder="Phone Number">
                   </div>
                   <div class="form-group col-md-1" style="display:flex ; align-items:center; justify-content:center">
                     <input type="hidden" value="0" name="bool">
                     <button type="submit" class="btn btn-primary">Update</button>
+                  </div>  
+                </div>  
             </form>
-
-                <% } %> 
+         </div>
+       <% } %> 
                 <!-- <div>
                     <form>
                         <div class="col-md-3" >
@@ -350,6 +401,7 @@
                     </form>
                 </div> -->
 
-    <!-- </div> -->
+    
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </html>
