@@ -31,7 +31,7 @@
     <form class="row g-3" action="/updatemenu">
       <div class="col-md-3">
         <label for="inputitem" class="form-label">Item Name</label>
-        <select id="inputitem" name="iname" class="form-select">
+        <select id="inputitem" required name="iname" class="form-select">
           <% for(let values of results1){%>
             <option><%=values.iname%></option>
             
@@ -40,7 +40,7 @@
       </div>
       <div class="col-md-3">
         <label for="inputEmail4" class="form-label">Availablity</label>
-        <select id="inputEmail4" name="Availablity" class="form-select">
+        <select id="inputEmail4"  required name="Availablity" class="form-select">
           
           <option>available</option>
           <option>not available</option>
@@ -51,7 +51,7 @@
       <div class="row " >
         <div class="col-md-3">
           <label for="inputPassword4" class="form-label">Specialist Chef</label>
-          <select id="inputPassword4" name="chef" class="form-select">
+          <select id="inputPassword4" required name="chef" class="form-select">
             
             <% for(let values of results2){%>
               <option><%=values.sname%></option>
@@ -61,7 +61,7 @@
         </div>
         <div class="col-md-3" >
         <label for="inputAddress2" class="form-label">Price</label>
-        <input type="text" class="form-control" name="Price" id="inputAddress2" placeholder="price">
+        <input type="text" class="form-control" required name="Price" id="inputAddress2" placeholder="price">
       </div>
       </div>
       
@@ -85,12 +85,12 @@
     <form class="row g-3" action="/additem">
       <div class="col-md-3">
         <label for="inputitem name" class="form-label">Item Name</label>
-        <input type="text" class="form-control" name="iname" id="inputitem name" placeholder="Item name">
+        <input type="text" required class="form-control" name="iname" id="inputitem name" placeholder="Item name">
         
       </div>
       <div class="col-md-3">
         <label for="inputEmail45" class="form-label">Availablity</label>
-        <select id="inputEmail45" name="Availablity" class="form-select">
+        <select id="inputEmail45" required name="Availablity" class="form-select">
           
           <option>available</option>
           <option>not available</option>
@@ -101,7 +101,7 @@
       <div class="row " >
         <div class="col-md-3">
           <label for="inputPassword45" class="form-label">Specialist Chef</label>
-          <select id="inputPassword45" name="chef" class="form-select">
+          <select id="inputPassword45" required name="chef" class="form-select">
             
             <% for(let values of results2){%>
               <option><%=values.sname%></option>
@@ -112,7 +112,7 @@
 
         <div class="col-md-3">
           <label for="inputEmail4" class="form-label">Description</label>
-          <select id="inputEmail4" name="desc" class="form-select">
+          <select id="inputEmail4" required name="desc" class="form-select">
             
             <option>veg</option>
             <option>non-veg</option>
@@ -125,7 +125,7 @@
     <div class="row">   
       <div class="col-md-3" >
         <label for="inputAddress3" class="form-label" >Price</label>
-        <input type="text" class="form-control" name="Price" id="inputAddress3" placeholder="price">
+        <input type="text"  required class="form-control" name="Price" id="inputAddress3" placeholder="price">
       </div>
     </div>
     
