@@ -32,7 +32,9 @@
 
           
         }
-        
+        a{
+          font-weight: 1000;
+        }
         .navbar-nav {
             margin-left:0;
         }
@@ -87,12 +89,12 @@
 .navbar{
   height: 100px;
 }
-.container-fluid{
-  height: max-content;
-}
+/* .container-fluid{
+  height: ;
+} */
 @font-face {
     font-family:handwriting;
-    src: url(../../public/css/Thesignature.ttf);
+    src: url(../../public/css/RosmatikaRegular-BWA45.ttf);
 }
 
 /* .button-24:active {
@@ -102,22 +104,30 @@
           background-color:rgb(0, 42, 255);
           size: 100px;
         } */
-        .nav-link active{
-          font-size: 15px;
+        .nav-link{
+          font-size: 20px;
+          font-weight: 300;
+        }
+        strong{
+          font-size: 170%;
         }
         @media(min-width:768px){
           .navbar{
             background: none!important;
           }
+          #yo{
+            background-color: inherit;
+          }
         }
+      
         
     </style>
     <link rel="stylesheet" href="../../public/css/template.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container-fluid"  style="margin-top:1rem !important"  >
-          <a class="navbar-brand"  href="/views/home" style="color:#97eaa1 ; font-family:handwriting; font-weight: 6000; width:5%;"><strong>tanwish is handsome</strong></a>
+        <div id="yo" class="container-fluid"  style="margin-top:0rem !important"  >
+          <a class="navbar-brand"  href="/views/home" style="color:#ffe6a7 ; font-family:handwriting; font-weight: 6000; width:5%;"><strong>MINAR</strong></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
