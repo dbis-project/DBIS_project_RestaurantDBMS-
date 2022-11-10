@@ -27,7 +27,7 @@
         
     </style>
     <%- include('../templates/partials/navbar'); %>
-    
+    <link rel='stylesheet' href="../public/css/buttons.css">
 </head>
 <!-- <body style="background-image: url('https://img.freepik.com/free-photo/top-view-food-frame-with-copy-space_23-2148747669.jpg?w=1060&t=st=1667565415~exp=1667566015~hmac=9fe09f8282311758b66edbcb0af2d94c0c92c888a7e310a9b0175d8c4ec12a5e'); background-size: 100% 130%;"> -->
 <body style="background:transparent;">
@@ -109,13 +109,13 @@
 
           <div class="form-group col-md-2">
             <label for="inputCity">Amount</label>
-            <input type="text" name="Amount" class="form-control" id="inputCity" >
+            <input type="text" required name="Amount" class="form-control" id="inputCity" >
           </div>
         
 
           <div class="form-group col-md-4">
             <label for="inputState">Attending Staff</label>
-            <select id="inputState"  name="Attendent" class="form-control">
+            <select id="inputState" required name="Attendent" class="form-control">
               
               <% for(let values of result){%>
                 <option><%=values.sname%></option>
@@ -150,7 +150,7 @@
 
       <div class="form-group col-md-6" style="display:flex ; align-items:center; justify-content:center">
           
-        <input type="submit" class="btn btn-primary" onclick="submitForm()"></button>
+        <input type="submit"class='button-17' class="btn btn-primary" onclick="submitForm()"></button>
       </div>
       
 

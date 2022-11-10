@@ -17,6 +17,7 @@
           backdrop-filter: blur(2px);
       }
       </style>
+      <link rel='stylesheet' href="../public/css/buttons.css">
 </head>
 <body style="background:transparent;">
 
@@ -28,13 +29,13 @@
       <div class="col-md-3" >
         <label for="inputdate" class="form-label" style="display:flex ; align-items:center; justify-content:center">Reservation Date</label>
         <% if(locals.bool!=0){ %>
-            <input type="date" name="date" class="form-control" id="inputdate" href="views/home.ejs">
+            <input type="date" name="date"  required class="form-control" id="inputdate" href="views/home.ejs">
             <%}else{%>
                 <input type="date "value=<%=locals.date%> name="date" class="form-control" id="inputdate" href="views/home.ejs">
                 <%}%>
     </div>
     <div class="col-12" style="display:flex ; align-items:center; justify-content:center">
-        <button type="submit" class="btn btn-primary">Check Available Tables</button>
+        <button type="submit" class='button-3'class="btn btn-primary">Check Available Tables</button>
       </div>
     </form style="display:flex ; align-items:center; justify-content:center ;margin-top: 100px;" >
 
@@ -44,7 +45,7 @@
       
        <div class="col-md-3">
         <label for="inputEmail4" class="form-label" style="display:flex ; align-items:center; justify-content:center">Available Tables</label>
-        <select id="inputEmail4" name="table_no" class="form-select">
+        <select id="inputEmail4" required name="table_no" class="form-select">
             <% for(let values of result){%> 
                 <option><%=values.table_no%></option>
                 <% }%>
@@ -53,24 +54,24 @@
         </div>
         <div class="col-md-3" >
             <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Customer Name</label>
-            <input type="text" class="form-control" name="name" id="cust_name" placeholder="Name">
+            <input type="text" required class="form-control" name="name" id="cust_name" placeholder="Name">
           </div>
           <div class="col-md-3" >
             <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Customer Email</label>
-            <input type="text" class="form-control" name="Email" id="cust_email" placeholder="Email">
+            <input type="text" required class="form-control" name="Email" id="cust_email" placeholder="Email">
           </div>
           <div class="col-md-3" >
             <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">Customer Number</label>
-            <input type="number" class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
+            <input type="number" required  class="form-control" name="Phone Number" id="cust_number" placeholder="Phone Number">
           </div>
         <div style="display:flex ; align-items:center; justify-content:center">
           <div class="col-md-3" >
             <label for="inputAddress2" class="form-label" style="display:flex ; align-items:center; justify-content:center">People Count</label>
-            <input type="number" class="form-control" name="num_peop" id="cust_count" min="0" max="20" placeholder="People Count">
+            <input type="number" required class="form-control" name="num_peop" id="cust_count" min="0" max="20" placeholder="People Count">
           </div>
         </div>
           <div class="col-12" style="display:flex ; align-items:center; justify-content:center">
-            <button type="submit" class="btn btn-primary">Reserve</button>
+            <button type="submit" class=button-22 class="btn btn-primary">Reserve</button>
           </div>
           <input type="hidden" class="form-control" name="date" id="date" value=<%=locals.date%> >
         </form>

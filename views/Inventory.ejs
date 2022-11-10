@@ -334,7 +334,7 @@
                                 <td><%= values.mname%></td>
                                 <td><%= values.price %></td>
                                 
-                                <% if(typeof values.unit_m!=' object'){%>
+                                <% if(typeof values.unit_m!='object' && values.unit_m!='null'&&values.unit_m!='' ){%>
                                 <td>
                                     <%= (values.quantity+' '+(values.unit_m))%></td>
                                 <%}else{%>
