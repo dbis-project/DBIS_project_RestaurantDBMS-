@@ -398,29 +398,57 @@ app.get('/views/Menu', (req, res) => {
 //     })
 // })
 
+// app.get('/views/Reservation', (req, res) => {
+
+//     let date = req.query.date
+//     res.locals.date = date;
+//     console.log(11);
+    
+
+//     let a_query = `select table_no from dine_table1 where table_no not in(select table_no from reservation1 where r_date='${date}');`
+//     if (date != undefined && date != null && date != '') {
+//         db.query(a_query, (err, result) => {
+//             console.log(result);
+//             if (err) throw err;
+//             res.locals.bool = 0;
+//             res.render("Reservation.ejs", { result })
+//             console.log(res.locals)
+
+//         })
+//     } else {
+//         res.locals.bool = 1;
+//         let result = {};
+//         res.render("Reservation.ejs")
+
+//     }
+// });
+//TRIAL PLEASE SEE
 app.get('/views/Reservation', (req, res) => {
 
     let date = req.query.date
     res.locals.date = date;
     console.log(11);
+    let sql2=`select * from reservation1 natural join customers1 where r_date=current_date()`
+    db.query(sql2,(err,res1)=>{
+
     let a_query = `select table_no from dine_table1 where table_no not in(select table_no from reservation1 where r_date='${date}');`
     if (date != undefined && date != null && date != '') {
         db.query(a_query, (err, result) => {
             console.log(result);
             if (err) throw err;
             res.locals.bool = 0;
-            res.render("Reservation.ejs", { result })
+            res.render("Reservation.ejs", { result,res1 })
             console.log(res.locals)
 
         })
     } else {
         res.locals.bool = 1;
         let result = {};
-        res.render("Reservation.ejs")
+        res.render("Reservation.ejs",{res1})
 
     }
+   })
 });
-
 app.get('/reserve', (req, res) => {
     let cust_num = Number(req.query["Phone Number"]);
     let cust_name = req.query.name;
@@ -428,7 +456,7 @@ app.get('/reserve', (req, res) => {
     let res_table = req.query.table_no;
     let date = req.query.date;
     let pep_count = req.query.num_peop;
-    let res_query = `insert  into reservation1(table_no,peoplecount,r_date,c_number) values(${res_table},${pep_count},'${date}',${cust_num})`;
+    let res_query = `insert  into reservation1(table_no,peoplecount,r_date,phone_no) values(${res_table},${pep_count},'${date}',${cust_num})`;
     db.query(res_query, (err, result) => {
         if (err) throw err;
     })
