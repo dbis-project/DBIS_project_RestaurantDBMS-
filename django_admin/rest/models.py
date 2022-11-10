@@ -187,13 +187,13 @@ class DiningTable1(models.Model):
         managed = False
         db_table = 'dining_table1'
 
+
 class Inventory1(models.Model):
-    material_id = models.IntegerField(primary_key=True)
+    material_id = models.AutoField(primary_key=True)
     mname = models.CharField(max_length=50, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     quantity = models.IntegerField(blank=True, null=True)
-    exp_date = models.DateField(blank=True, null=True)
-    sid = models.IntegerField(blank=True, null=True)
+    unit_m = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
         managed = False

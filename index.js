@@ -17,7 +17,7 @@ app.set('public', path.join(__dirname, '/public'))
 const db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'password',
+    password: '',
 
     database: 'sys'
 })
@@ -126,7 +126,7 @@ app.get('/complete/:oid', (req, res) => {
 });
 app.get('/views/orders', (req, res) => {
 
-    let sql = `select * from staff1 `
+    let sql = `select * from staff1 where designation='Waiter' `
     // .js
 
 
@@ -251,7 +251,7 @@ app.get('/views/logout', (req, res) => {
 
 app.get('/views/editpage', (req, res) => {
     let sql = `select * from menu1`
-    let sql1 = `select * from staff1 where designation='chef'`
+    let sql1 = `select * from staff1 where designation='Chef'`
 
 
     db.query(sql, (err, results1) => {
