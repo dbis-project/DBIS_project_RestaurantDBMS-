@@ -343,12 +343,12 @@ app.post('/addmaterial',(req,res)=>{
     let price =req.body.price;
     let iquantity=req.body.iquantity
     let unit_m=req.body.unit_m
-    // console.log(req.body);
+    console.log(req.body);
     // console.log(req.body);
     if(unit_m!=''){
         let add_query =`insert into inventory1(mname,price,quantity,unit_m) values ('${material}',${price},${iquantity},'${unit_m}') `;
         db.query(add_query, (err,result)=>{
-            // if(err)throw err;
+            if(err)throw err;
         });
        
     }else{
